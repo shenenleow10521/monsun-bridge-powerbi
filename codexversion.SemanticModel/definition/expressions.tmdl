@@ -1,4 +1,4 @@
-expression DataFolder = "C:\MonsunBridge\dummy" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression DataFolder = "C:\MonsunBridge\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: b7dc916d-f0f1-4cc5-8ea1-52024b2aebb7
 
 	annotation PBI_NavigationStepName = Navigation
