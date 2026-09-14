@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "incometable",
+  "position": {
+    "x": 816,
+    "y": 282,
+    "width": 752,
+    "height": 310,
+    "z": 7,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Income"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "Income.district",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Income"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "Income.date",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Income"
+                    }
+                  },
+                  "Property": "income_mean_rm"
+                }
+              },
+              "queryRef": "Income.income_mean_rm",
+              "nativeQueryRef": "Mean (RM)",
+              "displayName": "Mean (RM)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Income"
+                    }
+                  },
+                  "Property": "income_median_rm"
+                }
+              },
+              "queryRef": "Income.income_median_rm",
+              "nativeQueryRef": "Median (RM)",
+              "displayName": "Median (RM)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly household income · all four districts · 2024'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

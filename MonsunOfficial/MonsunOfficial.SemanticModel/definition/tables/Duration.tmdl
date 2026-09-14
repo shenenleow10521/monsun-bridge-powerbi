@@ -1,0 +1,19 @@
+table Duration
+
+	column months
+		dataType: int64
+		sourceColumn: months
+		summarizeBy: none
+		formatString: 0
+
+	partition Duration = m
+		mode: import
+		source =
+				#table(type table [months = Int64.Type], {
+				    {1},
+				    {2},
+				    {3},
+				    {4},
+				    {5},
+				    {6}
+				})

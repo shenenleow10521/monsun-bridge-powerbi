@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "visitorchart",
+  "position": {
+    "x": 32,
+    "y": 282,
+    "width": 752,
+    "height": 330,
+    "z": 6,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "quarter"
+                }
+              },
+              "queryRef": "Tourism.quarter",
+              "nativeQueryRef": "quarter",
+              "displayName": "quarter",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Visitors (million)"
+                }
+              },
+              "queryRef": "Metrics.Visitors (million)",
+              "nativeQueryRef": "Visitors (million)",
+              "displayName": "Visitors (million)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Tourism"
+                  }
+                },
+                "Property": "quarter"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Domestic visitors · million · national'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

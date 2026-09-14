@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "employmentchart",
+  "position": {
+    "x": 32,
+    "y": 282,
+    "width": 752,
+    "height": 310,
+    "z": 6,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labour"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "Labour.district",
+              "nativeQueryRef": "district",
+              "displayName": "district",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Employed persons"
+                }
+              },
+              "queryRef": "Metrics.Employed persons",
+              "nativeQueryRef": "Employed persons",
+              "displayName": "Employed persons"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Labour"
+                  }
+                },
+                "Property": "district"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Employment by district · persons · 2024'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

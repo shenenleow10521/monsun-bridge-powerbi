@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "tourismledger",
+  "position": {
+    "x": 32,
+    "y": 640,
+    "width": 1000,
+    "height": 192,
+    "z": 8,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "quarter"
+                }
+              },
+              "queryRef": "Tourism.quarter",
+              "nativeQueryRef": "Quarter",
+              "displayName": "Quarter"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "visitors_million"
+                }
+              },
+              "queryRef": "Tourism.visitors_million",
+              "nativeQueryRef": "Visitors (million)",
+              "displayName": "Visitors (million)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "expenditure_billion"
+                }
+              },
+              "queryRef": "Tourism.expenditure_billion",
+              "nativeQueryRef": "Expenditure (RM billion)",
+              "displayName": "Expenditure (RM billion)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "source_url"
+                }
+              },
+              "queryRef": "Tourism.source_url",
+              "nativeQueryRef": "DOSM publication",
+              "displayName": "DOSM publication"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Published observations and source links'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

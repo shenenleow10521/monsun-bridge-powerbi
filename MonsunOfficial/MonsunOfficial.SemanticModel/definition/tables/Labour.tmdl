@@ -1,0 +1,51 @@
+table Labour
+
+	column state
+		dataType: string
+		sourceColumn: state
+		summarizeBy: none
+
+	column district
+		dataType: string
+		sourceColumn: district
+		summarizeBy: none
+
+	column date
+		dataType: dateTime
+		sourceColumn: date
+		summarizeBy: none
+		formatString: yyyy
+
+	column labour_force_thousands
+		dataType: double
+		sourceColumn: labour_force_thousands
+		summarizeBy: none
+		formatString: 0.0
+
+	column employed_thousands
+		dataType: double
+		sourceColumn: employed_thousands
+		summarizeBy: none
+		formatString: 0.0
+
+	column unemployment_rate_pct
+		dataType: double
+		sourceColumn: unemployment_rate_pct
+		summarizeBy: none
+		formatString: 0.0
+
+	column source_url
+		dataType: string
+		sourceColumn: source_url
+		summarizeBy: none
+		dataCategory: WebUrl
+
+	partition Labour = m
+		mode: import
+		source =
+				#table(type table [state = text, district = text, date = date, labour_force_thousands = number, employed_thousands = number, unemployment_rate_pct = number, source_url = text], {
+				    {"Pahang", "Rompin", #date(2024, 1, 1), 41.1, 40.3, 1.9, "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Besut", #date(2024, 1, 1), 64.1, 61.8, 3.5, "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 63.4, 61.3, 3.3, "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Marang", #date(2024, 1, 1), 48.1, 46.8, 2.6, "https://data.gov.my/data-catalogue/lfs_district"}
+				})
