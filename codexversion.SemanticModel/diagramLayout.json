@@ -1,0 +1,243 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1806.4000244140625,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2257.0344611265332,
+            "y": 344.65199291782858
+          },
+          "nodeIndex": "dim_evidence_level",
+          "nodeLineageTag": "9799d483-c15e-4324-a56c-b11bb9747ab5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1455.0344611265332,
+            "y": 320.65199291782858
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "7e2648f5-8241-4667-a50d-b71cb672fafc",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 340.68889205886933,
+            "y": 567.30398583565716
+          },
+          "nodeIndex": "dim_district",
+          "nodeLineageTag": "4debedb3-5434-4901-8150-f4e49a5f30a0",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1739.0344611265332,
+            "y": 344.65199291782858
+          },
+          "nodeIndex": "dim_monsoon_window",
+          "nodeLineageTag": "0893493c-f235-406a-9623-5918492c3f37",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 366.40164046658924,
+            "y": 232.11677469122833
+          },
+          "nodeIndex": "dim_occupation",
+          "nodeLineageTag": "ac84e796-5de2-4d60-87c6-cafc1c7b7454",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 76.94443251629545,
+            "y": 359.73790465253205
+          },
+          "nodeIndex": "dim_occupation_alt",
+          "nodeLineageTag": "fe8475f2-e198-4d1c-b9d1-ce7527763d5f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1221.0344611265332,
+            "y": 330.65199291782858
+          },
+          "nodeIndex": "dim_sector",
+          "nodeLineageTag": "5046a8a8-c8aa-43e1-965a-fdce8dca5e44",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 937.03446112653307,
+            "y": 282.65199291782858
+          },
+          "nodeIndex": "fct_sector_seasonality",
+          "nodeLineageTag": "e9d2b1ec-6b47-40f3-84f9-8645fde1a916",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 631.19945336757917,
+            "y": -50
+          },
+          "nodeIndex": "fct_skill_evidence",
+          "nodeLineageTag": "ec27a748-cfa3-4140-9bb5-6f448b9d27bf",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2023.0344611265332,
+            "y": 294.65199291782858
+          },
+          "nodeIndex": "fct_tourism_exposure",
+          "nodeLineageTag": "c5441a26-c43f-4918-8f8a-0d4d64be48ee",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -42.940107315100136
+          },
+          "nodeIndex": "fct_transition_pathway",
+          "nodeLineageTag": "6101d055-bf5d-42c4-86ff-c12407d380bc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 653.03446112653319,
+            "y": 310.17632303777879
+          },
+          "nodeIndex": "fct_workforce_exposure",
+          "nodeLineageTag": "9affc350-28c9-4d94-963b-4da5045605a9",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2491.0344611265332,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "86f2f742-9430-45a4-944e-2a1d907e470f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2725.0344611265332,
+            "y": 0
+          },
+          "nodeIndex": "Participation Rate",
+          "nodeLineageTag": "21f2d851-d949-4c38-bd16-2129e30842fe",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2959.0344611265332,
+            "y": 0
+          },
+          "nodeIndex": "Training Months",
+          "nodeLineageTag": "9872c038-0419-400b-afea-4a89bf5f0fc4",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3193.0344611265332,
+            "y": 0
+          },
+          "nodeIndex": "Support Months",
+          "nodeLineageTag": "bb75e702-787c-45fe-a1f4-fd21e686b55f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3427.0344611265332,
+            "y": 0
+          },
+          "nodeIndex": "Cost Per Worker Month",
+          "nodeLineageTag": "1a4f5cf4-dc49-47ab-b1cc-27b4d1e8bdc5",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,42 @@
+table dim_occupation_alt
+	lineageTag: fe8475f2-e198-4d1c-b9d1-ce7527763d5f
+
+	column alt_occupation_code
+		dataType: string
+		lineageTag: 969a4d68-d2a8-40d5-98fb-1f69e4d9f45a
+		summarizeBy: none
+		sourceColumn: alt_occupation_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column alt_occupation_name
+		dataType: string
+		lineageTag: d1019396-60d1-4f68-b204-ac87128d9705
+		summarizeBy: none
+		sourceColumn: alt_occupation_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column alt_msic_sector
+		dataType: string
+		lineageTag: 0c60e087-bb41-472a-9606-d0c62cd135f4
+		summarizeBy: none
+		sourceColumn: alt_msic_sector
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_occupation_alt = m
+		mode: import
+		source =
+				let
+				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_occupation_alt.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"alt_occupation_code", type text}, {"alt_occupation_name", type text}, {"alt_msic_sector", type text}})
+				
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

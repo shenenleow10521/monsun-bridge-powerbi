@@ -1,0 +1,202 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ccd6fcc1bc703617617b",
+  "position": {
+    "x": 1200,
+    "y": 250,
+    "z": 8,
+    "height": 520,
+    "width": 680,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "destination_cluster"
+                }
+              },
+              "queryRef": "dim_district.destination_cluster",
+              "nativeQueryRef": "Destination Cluster",
+              "displayName": "Destination Cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Exposed Workers"
+                }
+              },
+              "queryRef": "_Measures.Exposed Workers",
+              "nativeQueryRef": "Exposed Workers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Worker-Month Exposure"
+                }
+              },
+              "queryRef": "_Measures.Worker-Month Exposure",
+              "nativeQueryRef": "Worker-Month Exposure"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_workforce_exposure"
+                    }
+                  },
+                  "Property": "evidence_level"
+                }
+              },
+              "queryRef": "fct_workforce_exposure.evidence_level",
+              "nativeQueryRef": "Evidence",
+              "displayName": "Evidence"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'District Exposure Detail'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "806e9c3e0d015810ec52",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "district_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f91fb1db720cdb2047db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "destination_cluster"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ebecc47690892b3a339c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Exposed Workers"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e27cc7bd7a7a30c39415",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Worker-Month Exposure"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b44c0c78b7ed88459637",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_workforce_exposure"
+              }
+            },
+            "Property": "evidence_level"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

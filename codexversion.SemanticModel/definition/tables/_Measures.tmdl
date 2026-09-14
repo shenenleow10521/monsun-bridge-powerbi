@@ -1,0 +1,229 @@
+table _Measures
+	lineageTag: 86f2f742-9430-45a4-944e-2a1d907e470f
+
+	measure TSEI = AVERAGE(fct_tourism_exposure[tsei])
+		formatString: #,0.0
+		lineageTag: 89b99502-d53d-4fe7-9443-c2f70bd07c97
+
+	measure 'Worker-Month Exposure' = ```
+			SUM(fct_workforce_exposure[wme]) 
+			```
+		formatString: #,0
+		lineageTag: 197754d1-ab82-4014-8e82-08edfd08adce
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Exposed Workers' = SUM(fct_workforce_exposure[tourism_linked_workers])
+		formatString: #,0
+		lineageTag: b370f1c9-126f-4bc6-9f2a-7c9f799492fb
+
+	measure 'Avg Exposure Months' = ```
+			AVERAGE(fct_workforce_exposure[exposure_months]) 
+			```
+		lineageTag: 9638af35-f7dd-4440-b94f-0a37bb4c753a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monsoon Days' = AVERAGE( dim_monsoon_window[exposure_days] )
+		formatString: #,0
+		lineageTag: 2bf9b7b8-312e-44d1-93ed-6e2f836ac17f
+
+	measure 'Avg Monsoon Share' = AVERAGE(fct_tourism_exposure[monsoon_share])
+		lineageTag: b0794ebd-e19c-4e1e-9ca7-b071a86b088e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Tourism Activity Index' = AVERAGE(fct_tourism_exposure[tai])
+		lineageTag: 3ba7630e-072b-489f-89d9-81d9339f197b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transitioning Workers' = ROUND([Exposed Workers] * 'Participation Rate'[Participation Rate Value], 0)
+		formatString: 0
+		lineageTag: 23f016af-0641-4f48-9bf1-d634fa63117d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Programme Cost' =
+			
+			VAR Workers   = [Transitioning Workers]
+			VAR CostPM    = 'Cost Per Worker Month'[Cost Per Worker Month Value]
+			VAR TrainCost = Workers * 'Training Months'[Training Months Value] * CostPM
+			VAR SuppCost  = Workers * 'Support Months'[Support Months Value] * CostPM * 0.6
+			VAR AdminCost = ( TrainCost + SuppCost ) * 0.10
+			RETURN
+			    TrainCost + SuppCost + AdminCost
+		lineageTag: e45fce02-768f-4b72-8e44-9ffca44c993a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Exposure Covered' = [Transitioning Workers] * [Avg Exposure Months]
+		formatString: #,0
+		lineageTag: e549faf4-f8a7-4201-a589-eb5a87c5bbb8
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Unaddressed Exposure' = MAX( [Worker-Month Exposure] - [Exposure Covered], 0 )
+		lineageTag: 25ead0a9-6f95-42be-a4e5-dbf886523df3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cost per Worker-Month Avoided' = DIVIDE( [Programme Cost], [Exposure Covered], 0 )
+		lineageTag: 0ef2fd1c-f8c3-449f-8859-c4852403318a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coverage Rate' = DIVIDE( [Exposure Covered], [Worker-Month Exposure], 0 )
+		lineageTag: 28f318b4-00d3-4efc-a1f2-612cbd50c1ea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top Pathway' =
+			
+			MAXX(
+			    FILTER( fct_transition_pathway, fct_transition_pathway[rank] = 1 ),
+			    RELATED( dim_occupation_alt[alt_occupation_name] )
+			)
+		lineageTag: ddadbe7b-1a49-4e9e-9950-1ee39e2daf32
+
+	measure 'Top Pathway Score' = CALCULATE( MAX( fct_transition_pathway[transition_score] ), fct_transition_pathway[rank] = 1 )
+		lineageTag: d62564ff-a8e8-4e45-81a8-06129df67ffe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Skills Matched' = CALCULATE( COUNTROWS( fct_skill_evidence ), fct_skill_evidence[is_matched] = 1 )
+		formatString: 0
+		lineageTag: 521af2d8-0fdd-4bbb-89b8-5ea1c98a36f8
+
+	measure 'Skills Gap' = CALCULATE( COUNTROWS( fct_skill_evidence ), fct_skill_evidence[is_matched] = 0 )
+		formatString: 0
+		lineageTag: c8ec81da-131f-4c0c-8abe-003926672c33
+
+	measure 'Capacity Evidence' =
+			
+			SWITCH(
+			    SELECTEDVALUE( fct_transition_pathway[capacity_evidence_level] ),
+			    "L1_OBSERVED", "L1 · Observed vacancies",
+			    "L2_PROXY",    "L2 · Sector proxy",
+			    "L3_MODELLED", "L3 · Modelled",
+			    "Not labelled"
+			)
+		lineageTag: ccfb1d7d-a80f-4b76-a4b3-2e75d4146a16
+
+	measure 'Allocated Workers' = SUM( fct_transition_pathway[allocated_workers] )
+		formatString: 0
+		lineageTag: f9f7edf1-6d57-48c4-aba0-d2578d16b96c
+
+	measure 'Avg Training Gap' = AVERAGE( fct_transition_pathway[training_gap_months] )
+		lineageTag: 8520aeac-56ed-4073-960d-c68056f9b946
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Evidence Colour' =
+			
+			SWITCH(
+			    SELECTEDVALUE( dim_evidence_level[level_code] ),
+			    "OBSERVED", "#2C7A48",
+			    "DERIVED",  "#A8720F",
+			    "MODELLED", "#2A5FA8",
+			    "#7C8B93"
+			)
+		lineageTag: d1d09a12-90d5-418c-8f2b-244344954f4b
+
+	measure 'TSEI Colour' =
+			
+			VAR v = [TSEI]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    v >= 80, "#A33B2A",
+			    v >= 60, "#C4622F",
+			    v >= 40, "#A8720F",
+			    v >= 20, "#5B8C3E",
+			    "#2C7A48"
+			)
+		lineageTag: d4be9ba7-eaac-41b0-adec-12ecb6522359
+
+	measure 'Priority Colour' =
+			
+			SWITCH(
+			    SELECTEDVALUE( fct_workforce_exposure[priority_band] ),
+			    "HIGH",   "#A33B2A",
+			    "MEDIUM", "#A8720F",
+			    "LOW",    "#2C7A48",
+			    "#7C8B93"
+			)
+		lineageTag: c4b6f290-f8f6-4dc4-8e03-b9f02ebe0ece
+
+	measure 'Page Title P1' =
+			
+			"Monsoon Exposure · " &
+			    IF(
+			        ISFILTERED( fct_tourism_exposure[state_code] ),
+			        SELECTEDVALUE( fct_tourism_exposure[state_code], "Multiple states" ),
+			        "All pilot states"
+			    )
+		lineageTag: bd2c2369-7185-47ee-b367-d65524541e4f
+
+	measure 'Page Title P2' =
+			
+			"Workforce Exposure · " &
+			    IF(
+			        ISFILTERED( dim_district[district_name] ),
+			        SELECTEDVALUE( dim_district[district_name], "Multiple districts" ),
+			        "All pilot districts"
+			    )
+		lineageTag: dedb00aa-aa3c-4ce6-98f2-6e8ee903f0fb
+
+	measure 'Page Title P3' =
+			
+			"Skill Transition Pathways · " &
+			    SELECTEDVALUE( dim_occupation[occupation_name], "Select an occupation" )
+		lineageTag: 320ed0d4-b813-4a0c-a45c-523ae951ba61
+
+	measure 'Page Title P4' =
+			
+			"Government Action Simulator · Participation " &
+			    FORMAT( 'Participation Rate'[Participation Rate Value], "0%" )
+		lineageTag: ff5a6450-14a2-4afd-8a47-85f7c40291b0
+
+	measure 'Transitioning Workers Display' = FORMAT( [Transitioning Workers], "#,##0" )
+		lineageTag: 76fcae70-88e7-42d6-8218-b93d81640570
+
+	measure 'Programme Cost Display' = "RM " & FORMAT( [Programme Cost], "#,##0" )
+		lineageTag: 50ed2f87-b589-48dd-b008-01b9b0a6fdd5
+
+	measure 'Exposure Covered Display' = FORMAT( [Exposure Covered], "#,##0" )
+		lineageTag: 8ef8061e-99bd-483e-8959-5b58b0447518
+
+	measure 'Cost per WM Avoided Display' = "RM " & FORMAT( [Cost per Worker-Month Avoided], "#,##0" )
+		lineageTag: 965fbe5a-4b79-4b21-80f8-4ccc1481225c
+
+	measure 'Coverage Rate Display' = FORMAT( [Coverage Rate], "0.0%" )
+		lineageTag: ac28ff52-997a-4f26-8576-693e6a41ea04
+
+	measure 'Avg Training Gap Display' = FORMAT( [Avg Training Gap], "0.0" ) & " months"
+		lineageTag: 054baa2b-00b8-4771-802e-fd51bdb3390a
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: 23ea7305-73a6-40b8-bb02-711f2a11725a
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

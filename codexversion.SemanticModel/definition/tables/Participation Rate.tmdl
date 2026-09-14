@@ -1,0 +1,28 @@
+table 'Participation Rate'
+	lineageTag: 21f2d851-d949-4c38-bd16-2129e30842fe
+
+	measure 'Participation Rate Value' = SELECTEDVALUE('Participation Rate'[Participation Rate], 0.4)
+		lineageTag: cfadcef9-828b-496b-a967-0e19a8f18f54
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Participation Rate'
+		lineageTag: d9599d8a-603f-4a86-ae09-f304830184dd
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Participation Rate' = calculated
+		mode: import
+		source = GENERATESERIES(0, 1, 0.05)
+
+	annotation PBI_Id = 48a8a6070f4a4e4981b2d8d33dd23d6d
+

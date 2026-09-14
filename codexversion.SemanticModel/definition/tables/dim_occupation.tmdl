@@ -1,0 +1,57 @@
+table dim_occupation
+	lineageTag: ac84e796-5de2-4d60-87c6-cafc1c7b7454
+
+	column occupation_code
+		dataType: string
+		lineageTag: 903be5a3-c811-4987-9352-9a668e18ecbf
+		summarizeBy: none
+		sourceColumn: occupation_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column occupation_name
+		dataType: string
+		lineageTag: 76f00c24-140c-4591-aa59-928d3c01774e
+		summarizeBy: none
+		sourceColumn: occupation_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column occupation_type
+		dataType: string
+		lineageTag: fb46760a-c364-40c3-9b72-1ed5ff941f5a
+		summarizeBy: none
+		sourceColumn: occupation_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column msic_sector
+		dataType: string
+		lineageTag: 7b8de944-5a97-4a81-a7d6-953da44692c6
+		summarizeBy: none
+		sourceColumn: msic_sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_url
+		dataType: string
+		lineageTag: b541b1a0-a789-4161-b4b8-564604282ea1
+		summarizeBy: none
+		sourceColumn: source_url
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_occupation = m
+		mode: import
+		source =
+				let
+				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_occupation.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"occupation_code", type text}, {"occupation_name", type text}, {"occupation_type", type text}, {"msic_sector", type text}, {"source_url", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
