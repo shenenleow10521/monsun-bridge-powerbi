@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "a063299d7655d2d9671b",
+  "name": "mbp4timeline00000000",
   "position": {
-    "x": 40,
-    "y": 870,
-    "z": 24,
-    "height": 170,
-    "width": 980,
-    "tabOrder": 24
+    "x": 1040,
+    "y": 750,
+    "z": 23,
+    "height": 290,
+    "width": 840,
+    "tabOrder": 23
   },
   "visual": {
     "visualType": "textbox",
@@ -19,21 +19,28 @@
               {
                 "textRuns": [
                   {
-                    "value": "MODELLED SCENARIO — NOT A BUDGET"
+                    "value": "GOVERNMENT ACTION TIMELINE"
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "All figures respond to the four planning parameters above; they are not official allocations or commitments."
+                    "value": "01  DOSM updates data   →   02  State unit detects exposure   →   03  District council prioritises workers"
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "Exposure is reported in worker-months. Individual income loss is not estimated because it is not observed in the official inputs."
+                    "value": "04  HRD Corp maps skills   →   05  Providers allocate training   →   06  DOSM reviews post-monsoon outcomes"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "ACT BEFORE THE WINDOW OPENS  ·  Data → exposure → transition → monitoring"
                   }
                 ]
               }

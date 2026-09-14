@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "31cc07904bea38a46b85",
   "position": {
-    "x": 1480,
+    "x": 1420,
     "y": 100,
-    "z": 2,
-    "height": 130,
-    "width": 400,
-    "tabOrder": 2
+    "z": 4,
+    "height": 120,
+    "width": 420,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "slicer",
@@ -96,10 +96,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cost Per Worker Month'"
+                  "Value": "'Cost per Worker-Month (RM)'"
                 }
               }
             }

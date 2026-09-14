@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "42883f0e72f8608007cf",
   "position": {
-    "x": 979.02657415892133,
-    "y": 456.03455949731642,
-    "z": 9,
-    "height": 258.78151590522322,
-    "width": 899.40149234192961,
-    "tabOrder": 9
+    "x": 1040,
+    "y": 440,
+    "z": 21,
+    "height": 290,
+    "width": 840,
+    "tabOrder": 21
   },
   "visual": {
     "visualType": "tableEx",
@@ -188,10 +188,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Allocation by District — Modelled'"
+                  "Value": "'District Allocation · MODELLED'"
                 }
               }
             }
@@ -204,7 +211,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Workers supported and exposure covered'"
                 }
               }
             }

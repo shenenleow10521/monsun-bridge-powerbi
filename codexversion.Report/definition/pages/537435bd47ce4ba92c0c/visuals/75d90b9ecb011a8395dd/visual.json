@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "75d90b9ecb011a8395dd",
   "position": {
-    "x": 520,
+    "x": 500,
     "y": 100,
-    "z": 3,
-    "height": 130,
-    "width": 440,
-    "tabOrder": 3
+    "z": 2,
+    "height": 120,
+    "width": 420,
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "slicer",
@@ -96,10 +96,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Training Months'"
+                  "Value": "'Training Duration (months)'"
                 }
               }
             }

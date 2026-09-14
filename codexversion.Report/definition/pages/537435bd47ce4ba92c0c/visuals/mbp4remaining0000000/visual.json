@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "b7f92201c1be1144e398",
+  "name": "mbp4remaining0000000",
   "position": {
-    "x": 1590,
+    "x": 970,
     "y": 250,
-    "z": 14,
+    "z": 13,
     "height": 155,
     "width": 290,
-    "tabOrder": 14
+    "tabOrder": 13
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Coverage Rate Display"
+                  "Property": "Unaddressed Exposure"
                 }
               },
-              "queryRef": "_Measures.Coverage Rate Display",
-              "nativeQueryRef": "Coverage Rate Display"
+              "queryRef": "_Measures.Unaddressed Exposure",
+              "nativeQueryRef": "Unaddressed Exposure"
             }
           ]
         }
@@ -68,7 +68,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Exposure Coverage'"
+                  "Value": "'Remaining Exposure'"
                 }
               }
             }
