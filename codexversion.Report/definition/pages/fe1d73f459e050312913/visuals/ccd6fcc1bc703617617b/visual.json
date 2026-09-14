@@ -3,11 +3,11 @@
   "name": "ccd6fcc1bc703617617b",
   "position": {
     "x": 1200,
-    "y": 250,
-    "z": 8,
-    "height": 520,
+    "y": 310,
+    "z": 17,
+    "height": 500,
     "width": 680,
-    "tabOrder": 8
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "tableEx",
@@ -99,10 +99,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'District Exposure Detail'"
+                  "Value": "'District Exposure Detail · MODELLED ALLOCATION'"
                 }
               }
             }

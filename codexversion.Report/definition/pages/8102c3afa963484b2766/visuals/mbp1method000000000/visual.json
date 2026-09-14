@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "mbp1method000000000",
+  "position": {
+    "x": 600,
+    "y": 730,
+    "z": 33,
+    "height": 310,
+    "width": 600,
+    "tabOrder": 33
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "HOW THE MONSOON CLOCK WORKS"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1  OBSERVE official quarterly tourism and METMalaysia dates"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2  DERIVE Monsoon Share for each quarter"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3  Estimate TSEI against the non-monsoon baseline"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4  Forecast with an interpretable time-series model and uncertainty"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Decision use  ·  Trigger preparation before the exposure window opens"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

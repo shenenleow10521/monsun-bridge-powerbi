@@ -29,7 +29,7 @@ table dim_occupation_alt
 		mode: import
 		source =
 				let
-				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_occupation_alt.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_dim_occupation_alt.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"alt_occupation_code", type text}, {"alt_occupation_name", type text}, {"alt_msic_sector", type text}})
 				

@@ -49,7 +49,7 @@ table dim_evidence_level
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_evidence_level.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents(DataFolder & "\MB_dim_evidence_level.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"level_code", type text}, {"level_name_en", type text}, {"level_name_zh", type text}, {"hex_color", type text}, {"sort_order", Int64.Type}})
 				in

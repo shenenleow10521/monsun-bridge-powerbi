@@ -62,7 +62,7 @@ table fct_sector_seasonality
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_fct_sector_seasonality.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_sector_seasonality.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"sector_code", type text}, {"month_date", type date}, {"activity_value", type number}, {"seasonal_index", type number}, {"csi", type number}, {"evidence_level", type text}})
 				in

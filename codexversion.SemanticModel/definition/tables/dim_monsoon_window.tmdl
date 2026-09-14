@@ -52,11 +52,15 @@ table dim_monsoon_window
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_monsoon_window.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"season_year", type text}, {"onset_date", type date}, {"withdrawal_date", type date}, {"exposure_days", Int64.Type}, {"source_url", type text}})
+				    Source = #table(
+				        type table [season_year = text, onset_date = date, withdrawal_date = date, exposure_days = Int64.Type, source_url = text],
+				        {
+				            {"2020/21", #date(2020, 11, 11), #date(2021, 3, 28), 138, "https://www.met.gov.my/data/research/researchpapers/2023/RP01_2023.pdf"},
+				            {"2024/25", #date(2024, 11, 13), #date(2025, 3, 25), 133, "https://www.met.gov.my/data/research/researchpapers/2025/RP01_2025.pdf"}
+				        }
+				    )
 				in
-				    #"Changed Type"
+				    Source
 
 	annotation PBI_NavigationStepName = Navigation
 

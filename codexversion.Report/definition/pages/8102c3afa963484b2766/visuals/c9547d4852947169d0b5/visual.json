@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c9547d4852947169d0b5",
   "position": {
-    "x": 1560,
-    "y": 100,
-    "z": 4000,
-    "height": 90,
-    "width": 320,
-    "tabOrder": 4000
+    "x": 1420,
+    "y": 135,
+    "z": 13,
+    "height": 70,
+    "width": 220,
+    "tabOrder": 13
   },
   "visual": {
     "visualType": "slicer",
@@ -54,6 +54,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'QUARTER YEAR'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

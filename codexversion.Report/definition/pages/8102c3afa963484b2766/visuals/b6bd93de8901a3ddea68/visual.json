@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b6bd93de8901a3ddea68",
   "position": {
-    "x": 1280,
-    "y": 710,
-    "z": 7000,
-    "height": 355,
-    "width": 600,
-    "tabOrder": 7000
+    "x": 40,
+    "y": 730,
+    "z": 17,
+    "height": 310,
+    "width": 540,
+    "tabOrder": 17
   },
   "visual": {
     "visualType": "tableEx",
@@ -107,10 +107,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evidence Level'"
+                  "Value": "'Evidence Ledger · Read Every Number Correctly'"
                 }
               }
             }

@@ -45,7 +45,7 @@ table dim_occupation
 		mode: import
 		source =
 				let
-				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_occupation.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_dim_occupation.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"occupation_code", type text}, {"occupation_name", type text}, {"occupation_type", type text}, {"msic_sector", type text}, {"source_url", type text}})
 				in

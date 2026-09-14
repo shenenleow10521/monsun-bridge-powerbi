@@ -3,11 +3,11 @@
   "name": "6db9f4dd095ac3addb5b",
   "position": {
     "x": 40,
-    "y": 311.66666666666669,
-    "z": 3000,
-    "height": 380,
-    "width": 1840,
-    "tabOrder": 3000
+    "y": 310,
+    "z": 15,
+    "height": 400,
+    "width": 1160,
+    "tabOrder": 15
   },
   "visual": {
     "visualType": "lineStackedColumnComboChart",
@@ -114,7 +114,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DDE2E5'"
+                      "Value": "'#B9DCDD'"
                     }
                   }
                 }
@@ -141,10 +141,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Monsoon Share and Tourism Exposure by Quarter'"
+                  "Value": "'Tourism Exposure vs Monsoon Share · DERIVED'"
                 }
               }
             }
@@ -157,7 +164,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quarterly national tourism signal; local allocation is modelled'"
                 }
               }
             }

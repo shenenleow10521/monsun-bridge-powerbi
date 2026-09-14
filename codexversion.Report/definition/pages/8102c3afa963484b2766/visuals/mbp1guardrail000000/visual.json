@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "mbp1guardrail000000",
+  "position": {
+    "x": 1220,
+    "y": 730,
+    "z": 34,
+    "height": 310,
+    "width": 660,
+    "tabOrder": 34
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "DATA RESOLUTION · EVIDENCE GUARDRAIL"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "OBSERVED  ·  DOSM national quarterly tourism releases"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "OBSERVED  ·  METMalaysia onset and withdrawal dates"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "DERIVED   ·  TAI, Monsoon Share and national TSEI"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "MODELLED  ·  State / district allocation and exposed-worker outputs"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Never read a local allocation as an official district tourism statistic."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

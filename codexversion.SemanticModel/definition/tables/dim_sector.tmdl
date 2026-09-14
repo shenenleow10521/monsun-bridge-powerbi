@@ -21,7 +21,7 @@ table dim_sector
 		mode: import
 		source =
 				let
-				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_sector.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_dim_sector.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"sector_code", type text}, {"sector_name", type text}})
 				in

@@ -127,7 +127,7 @@ table fct_tourism_exposure
 		mode: import
 		source =
 				let
-				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_fct_tourism_exposure.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_tourism_exposure.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"state_code", type text}, {"quarter_start_date", type date}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"tai", type number}, {"monsoon_share", type number}, {"baseline", type number}, {"tsei", type number}, {"tsei_band", type text}, {"is_forecast", Int64.Type}, {"forecast_lower", type number}, {"forecast_upper", type number}, {"evidence_level", type text}})
 				in

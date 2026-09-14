@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e9fc9a1b5b370343cb50",
   "position": {
-    "x": 40,
-    "y": 710,
-    "z": 6000,
-    "height": 355,
-    "width": 1205,
-    "tabOrder": 6000
+    "x": 1220,
+    "y": 310,
+    "z": 16,
+    "height": 400,
+    "width": 660,
+    "tabOrder": 16
   },
   "visual": {
     "visualType": "tableEx",
@@ -41,9 +41,9 @@
                   "Property": "onset_date"
                 }
               },
-              "queryRef": "dim_monsoon_window.onset_date.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "Onset",
-              "displayName": "Onset"
+              "queryRef": "dim_monsoon_window.onset_date",
+              "nativeQueryRef": "Onset date",
+              "displayName": "Onset date"
             },
             {
               "field": {
@@ -56,9 +56,9 @@
                   "Property": "withdrawal_date"
                 }
               },
-              "queryRef": "dim_monsoon_window.withdrawal_date.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "Withdrawal",
-              "displayName": "Withdrawal"
+              "queryRef": "dim_monsoon_window.withdrawal_date",
+              "nativeQueryRef": "Withdrawal date",
+              "displayName": "Withdrawal date"
             },
             {
               "field": {
@@ -115,10 +115,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed Monsoon Windows (METMalaysia)'"
+                  "Value": "'Verified Northeast Monsoon Windows · OBSERVED INPUT'"
                 }
               }
             }

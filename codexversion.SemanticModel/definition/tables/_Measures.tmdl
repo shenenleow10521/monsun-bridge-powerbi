@@ -20,6 +20,7 @@ table _Measures
 	measure 'Avg Exposure Months' = ```
 			AVERAGE(fct_workforce_exposure[exposure_months]) 
 			```
+		formatString: #,0.0
 		lineageTag: 9638af35-f7dd-4440-b94f-0a37bb4c753a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -29,11 +30,13 @@ table _Measures
 		lineageTag: 2bf9b7b8-312e-44d1-93ed-6e2f836ac17f
 
 	measure 'Avg Monsoon Share' = AVERAGE(fct_tourism_exposure[monsoon_share])
+		formatString: 0%
 		lineageTag: b0794ebd-e19c-4e1e-9ca7-b071a86b088e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Tourism Activity Index' = AVERAGE(fct_tourism_exposure[tai])
+		formatString: #,0.0
 		lineageTag: 3ba7630e-072b-489f-89d9-81d9339f197b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -157,34 +160,35 @@ table _Measures
 
 	measure 'Page Title P1' =
 			
-			"Monsoon Exposure · " &
+			"Monsoon Clock · " &
 			    IF(
 			        ISFILTERED( fct_tourism_exposure[state_code] ),
-			        SELECTEDVALUE( fct_tourism_exposure[state_code], "Multiple states" ),
-			        "All pilot states"
+			        SELECTEDVALUE( fct_tourism_exposure[state_code], "Multiple") & " modelled allocation",
+			        "National quarterly signal"
 			    )
 		lineageTag: bd2c2369-7185-47ee-b367-d65524541e4f
 
 	measure 'Page Title P2' =
 			
-			"Workforce Exposure · " &
+			"Exposure Map · " &
 			    IF(
 			        ISFILTERED( dim_district[district_name] ),
-			        SELECTEDVALUE( dim_district[district_name], "Multiple districts" ),
+			        SELECTEDVALUE( dim_district[district_name], "Multiple districts"),
 			        "All pilot districts"
-			    )
+			    ) & " · MODELLED"
 		lineageTag: dedb00aa-aa3c-4ce6-98f2-6e8ee903f0fb
 
 	measure 'Page Title P3' =
 			
-			"Skill Transition Pathways · " &
+			"Skill Bridge · " &
 			    SELECTEDVALUE( dim_occupation[occupation_name], "Select an occupation" )
 		lineageTag: 320ed0d4-b813-4a0c-a45c-523ae951ba61
 
 	measure 'Page Title P4' =
 			
-			"Government Action Simulator · Participation " &
-			    FORMAT( 'Participation Rate'[Participation Rate Value], "0%" )
+			"Action Planner · Participation " &
+			    FORMAT( 'Participation Rate'[Participation Rate Value], "0%" ) &
+			    " · MODELLED SCENARIO"
 		lineageTag: ff5a6450-14a2-4afd-8a47-85f7c40291b0
 
 	measure 'Transitioning Workers Display' = FORMAT( [Transitioning Workers], "#,##0" )

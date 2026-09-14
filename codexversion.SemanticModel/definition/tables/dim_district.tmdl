@@ -74,7 +74,7 @@ table dim_district
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_dim_district.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents(DataFolder & "\MB_dim_district.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"district_code", type text}, {"district_name", type text}, {"state_code", type text}, {"state_name", type text}, {"latitude", type number}, {"longitude", type number}, {"is_pilot", Int64.Type}, {"destination_cluster", type text}})
 				in

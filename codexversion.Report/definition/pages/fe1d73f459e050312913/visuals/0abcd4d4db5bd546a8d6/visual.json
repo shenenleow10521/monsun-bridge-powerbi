@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0abcd4d4db5bd546a8d6",
   "position": {
-    "x": 620,
-    "y": 250,
-    "z": 6,
-    "height": 380,
-    "width": 560,
-    "tabOrder": 6
+    "x": 560,
+    "y": 310,
+    "z": 15,
+    "height": 350,
+    "width": 620,
+    "tabOrder": 15
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -95,10 +95,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Worker-Month Exposure by District'"
+                  "Value": "'Worker-Month Exposure by District · MODELLED'"
                 }
               }
             }
@@ -111,7 +118,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Prioritisation output, not observed income loss'"
                 }
               }
             }

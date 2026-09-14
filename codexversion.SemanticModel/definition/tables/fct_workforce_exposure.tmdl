@@ -85,7 +85,7 @@ table fct_workforce_exposure
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_fct_workforce_exposure.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_workforce_exposure.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"district_code", type text}, {"occupation_code", type text}, {"year", Int64.Type}, {"tourism_linked_workers", Int64.Type}, {"tourism_dependency", type number}, {"exposure_months", type number}, {"wme", type number}, {"priority_band", type text}, {"evidence_level", type text}})
 				in

@@ -114,7 +114,7 @@ table fct_transition_pathway
 		mode: import
 		source =
 				let
-				     Source = Csv.Document(File.Contents(DataFolder & "\DUMMY_fct_transition_pathway.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_transition_pathway.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"district_code", type text}, {"occupation_code", type text}, {"alt_occupation_code", type text}, {"semantic_similarity", type number}, {"geographic_feasibility", type number}, {"seasonal_fit", type number}, {"training_gap_months", type number}, {"capacity_value", Int64.Type}, {"capacity_evidence_level", type text}, {"transition_score", type number}, {"rank", Int64.Type}, {"allocated_workers", Int64.Type}})
 				in

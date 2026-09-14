@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "mbp3guardrail000000",
+  "position": {
+    "x": 1300,
+    "y": 750,
+    "z": 33,
+    "height": 270,
+    "width": 540,
+    "tabOrder": 33
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "EVIDENCE GUARDRAIL"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Similarity is not job availability."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "L1  ·  Observed vacancies"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "L2  ·  Official sector-capacity proxy"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "L3  ·  Modelled planning assumption"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Use the recommendation as transition intelligence — never as an employment guarantee."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
