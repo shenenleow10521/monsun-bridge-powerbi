@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "76ab68af57bcb3cf6066",
   "position": {
-    "x": 1390,
-    "y": 510,
+    "x": 40,
+    "y": 690,
     "z": 9,
-    "height": 250,
-    "width": 490,
+    "height": 330,
+    "width": 300,
     "tabOrder": 9
   },
   "visual": {
@@ -107,10 +107,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evidence Level'"
+                  "Value": "'Evidence Ledger'"
                 }
               }
             }

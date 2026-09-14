@@ -3,10 +3,10 @@
   "name": "6b748b345a6dbd1437ea",
   "position": {
     "x": 40,
-    "y": 506.66666666666669,
+    "y": 440,
     "z": 2,
-    "height": 360,
-    "width": 371.66666666666669,
+    "height": 230,
+    "width": 300,
     "tabOrder": 2
   },
   "visual": {
@@ -126,10 +126,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Select a District'"
+                  "Value": "'Pilot District'"
                 }
               }
             }

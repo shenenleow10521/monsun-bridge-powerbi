@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f1bc2009a23c598464aa",
   "position": {
-    "x": 1389.451517308743,
-    "y": 309.21907852258994,
+    "x": 1300,
+    "y": 300,
     "z": 8,
-    "height": 197.33059616244225,
-    "width": 490.274986341738,
+    "height": 170,
+    "width": 540,
     "tabOrder": 8
   },
   "visual": {
@@ -58,10 +58,37 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Absorption Capacity — Evidence Grade'"
+                  "Value": "'Capacity Evidence'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Observed vacancy → sector proxy → modelled'"
                 }
               }
             }

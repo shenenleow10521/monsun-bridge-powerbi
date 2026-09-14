@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "55e50d15e23853cc1e89",
   "position": {
-    "x": 1040,
-    "y": 720,
+    "x": 370,
+    "y": 730,
     "z": 3,
-    "height": 360,
-    "width": 880,
+    "height": 290,
+    "width": 900,
     "tabOrder": 3
   },
   "visual": {
@@ -188,10 +188,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Skill Evidence — What Carries Over, What Is a Gap'"
+                  "Value": "'Skill Evidence'"
                 }
               }
             }
@@ -204,7 +211,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'What carries over · what requires training'"
                 }
               }
             }

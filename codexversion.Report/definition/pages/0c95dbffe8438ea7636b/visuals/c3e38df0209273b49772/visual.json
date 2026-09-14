@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c3e38df0209273b49772",
   "position": {
-    "x": 486.66666666666669,
-    "y": 90,
-    "z": 1,
-    "height": 360,
-    "width": 880,
-    "tabOrder": 1
+    "x": 370,
+    "y": 100,
+    "z": 3,
+    "height": 420,
+    "width": 900,
+    "tabOrder": 3
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -29,22 +29,11 @@
               "queryRef": "dim_occupation_alt.alt_occupation_name",
               "nativeQueryRef": "Alternative Occupation",
               "displayName": "Alternative Occupation"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fct_transition_pathway"
-                    }
-                  },
-                  "Property": "rank"
-                }
-              },
-              "queryRef": "Sum(fct_transition_pathway.rank)",
-              "nativeQueryRef": "Rank",
-              "displayName": "Rank"
-            },
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Column": {
@@ -59,6 +48,25 @@
               "queryRef": "Sum(fct_transition_pathway.transition_score)",
               "nativeQueryRef": "Transition Score",
               "displayName": "Transition Score"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "rank"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.rank)",
+              "nativeQueryRef": "Rank",
+              "displayName": "Rank"
             },
             {
               "field": {
@@ -148,36 +156,108 @@
                     "Entity": "fct_transition_pathway"
                   }
                 },
-                "Property": "rank"
+                "Property": "transition_score"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
     },
     "objects": {
-      "values": [
+      "labels": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "11D"
                 }
               }
             }
           }
         }
       ],
-      "columnHeaders": [
+      "categoryAxis": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "11D"
                 }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": "#159D98"
               }
             }
           }
@@ -188,10 +268,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Transition Pathways — Ranked'"
+                  "Value": "'Top Transition Pathways'"
                 }
               }
             }
@@ -204,7 +291,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MODELLED · Skill × geography × seasonality × capacity × training'"
                 }
               }
             }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c267c44923b8f3738995",
   "position": {
-    "x": 40,
-    "y": 880,
+    "x": 370,
+    "y": 540,
     "z": 4,
-    "height": 160,
-    "width": 660,
+    "height": 170,
+    "width": 550,
     "tabOrder": 4
   },
   "visual": {
@@ -58,10 +58,37 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Best Alternative Occupation'"
+                  "Value": "'Recommended Transition'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MODELLED · Evidence-backed pathway'"
                 }
               }
             }

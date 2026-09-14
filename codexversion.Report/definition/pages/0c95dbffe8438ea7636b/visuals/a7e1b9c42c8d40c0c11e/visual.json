@@ -3,11 +3,11 @@
   "name": "a7e1b9c42c8d40c0c11e",
   "position": {
     "x": 40,
-    "y": 90,
-    "z": 0,
-    "height": 360,
-    "width": 371.66666666666669,
-    "tabOrder": 0
+    "y": 100,
+    "z": 1,
+    "height": 320,
+    "width": 300,
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "slicer",
@@ -126,10 +126,17 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Select a Tourism Occupation'"
+                  "Value": "'Tourism Occupation'"
                 }
               }
             }
