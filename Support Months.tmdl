@@ -1,0 +1,26 @@
+table 'Support Months'
+	lineageTag: bb75e702-787c-45fe-a1f4-fd21e686b55f
+
+	measure 'Support Months Value' = SELECTEDVALUE('Support Months'[Support Months], 1)
+		formatString: 0
+		lineageTag: dc485135-4211-4501-8bb0-374b39fb3760
+
+	column 'Support Months'
+		formatString: 0
+		lineageTag: da3cae35-e09d-4cd5-8c01-7c4d387402fa
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Support Months' = calculated
+		mode: import
+		source = GENERATESERIES(0, 4, 1)
+
+	annotation PBI_Id = 2111200edfbb406899ac0545c360cbb8
+

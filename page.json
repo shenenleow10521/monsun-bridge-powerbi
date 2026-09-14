@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "0c95dbffe8438ea7636b",
+  "displayName": "P3 Skill Bridge",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "189L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "a7e1b9c42c8d40c0c11e",
+      "target": "c3e38df0209273b49772",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c3e38df0209273b49772",
+      "target": "a7e1b9c42c8d40c0c11e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c3e38df0209273b49772",
+      "target": "6b748b345a6dbd1437ea",
+      "type": "DataFilter"
+    },
+    {
+      "source": "a7e1b9c42c8d40c0c11e",
+      "target": "55e50d15e23853cc1e89",
+      "type": "DataFilter"
+    }
+  ]
+}

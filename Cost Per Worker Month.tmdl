@@ -1,0 +1,46 @@
+table 'Cost Per Worker Month'
+	lineageTag: 1a4f5cf4-dc49-47ab-b1cc-27b4d1e8bdc5
+
+	measure 'Cost Per Worker Month Value' = SELECTEDVALUE('Cost Per Worker Month'[Cost Per Worker Month], 800)
+		formatString: 0
+		lineageTag: 44b14e4f-34a1-4784-addf-94f12ac7976b
+
+	measure 'Exposed Workers Display' = FORMAT( [Exposed Workers], "#,##0" )
+		lineageTag: 72eea555-8f87-4e95-b5e0-c505060d9bf6
+
+	measure 'WME Display' = FORMAT( [Worker-Month Exposure], "#,##0" )
+		lineageTag: bc63f1f2-cf3d-4bed-b99c-d2067f3663ad
+
+	measure 'Avg Exposure Months Display' = FORMAT( [Avg Exposure Months], "0.00" )
+		lineageTag: b53d0409-7392-4667-93fd-bcb8d003eb82
+
+	measure 'Skill Status' =
+			
+			VAR m = MAX( fct_skill_evidence[is_matched] )
+			RETURN
+			    IF(
+			        ISBLANK( m ),
+			        BLANK(),
+			        IF( m = 1, "Carried over", "Gap" )
+			    )
+		lineageTag: 6f62487f-bd0e-4fcd-8699-cdc214dc820b
+
+	column 'Cost Per Worker Month'
+		formatString: 0
+		lineageTag: 7c33ec7b-0752-4999-97ba-f796679b634c
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Cost Per Worker Month' = calculated
+		mode: import
+		source = GENERATESERIES(200, 2000, 100)
+
+	annotation PBI_Id = 48d00f3aabc6440a89b397ac1aa56756
+

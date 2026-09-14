@@ -1,0 +1,333 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c3e38df0209273b49772",
+  "position": {
+    "x": 486.66666666666669,
+    "y": 90,
+    "z": 1,
+    "height": 360,
+    "width": 880,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_occupation_alt"
+                    }
+                  },
+                  "Property": "alt_occupation_name"
+                }
+              },
+              "queryRef": "dim_occupation_alt.alt_occupation_name",
+              "nativeQueryRef": "Alternative Occupation",
+              "displayName": "Alternative Occupation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "rank"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.rank)",
+              "nativeQueryRef": "Rank",
+              "displayName": "Rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "transition_score"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.transition_score)",
+              "nativeQueryRef": "Transition Score",
+              "displayName": "Transition Score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "semantic_similarity"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.semantic_similarity)",
+              "nativeQueryRef": "Skill Similarity",
+              "displayName": "Skill Similarity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "geographic_feasibility"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.geographic_feasibility)",
+              "nativeQueryRef": "Geographic Feasibility",
+              "displayName": "Geographic Feasibility"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "seasonal_fit"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.seasonal_fit)",
+              "nativeQueryRef": "Seasonal Fit",
+              "displayName": "Seasonal Fit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "training_gap_months"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.training_gap_months)",
+              "nativeQueryRef": "Training Gap (months)",
+              "displayName": "Training Gap (months)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "capacity_evidence_level"
+                }
+              },
+              "queryRef": "fct_transition_pathway.capacity_evidence_level",
+              "nativeQueryRef": "Capacity Evidence",
+              "displayName": "Capacity Evidence"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_transition_pathway"
+                  }
+                },
+                "Property": "rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Transition Pathways — Ranked'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "86ad19fea6195d30b8bd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_occupation_alt"
+              }
+            },
+            "Property": "alt_occupation_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "09dca187068257376500",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "capacity_evidence_level"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "38e365d096873bee2c9d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "rank"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "97a3b635e7202dce7ee9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "transition_score"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "247bff46177db700d0a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "semantic_similarity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4b84933530c21c382983",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "geographic_feasibility"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "04ed74b40405c775b7dd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "training_gap_months"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c27cf7ce37c50aebbba3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "seasonal_fit"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

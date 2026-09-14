@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a063299d7655d2d9671b",
+  "position": {
+    "x": 979.7631451113084,
+    "y": 751.28896631434361,
+    "z": 11,
+    "height": 288.16563091509067,
+    "width": 940.65495234426032,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "MODELLED SCENARIO — NOT A BUDGET"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Every figure on this page is produced by the four parameters set above. They are not official budgets, allocations or commitments, and no government body has reviewed or endorsed them."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Cost assumptions: training at the full per-worker-month rate; income support at 60% of that rate; administration at 10% of the two combined. These are the team's own planning assumptions, stated in Section 5 of the project report."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Exposure is measured in worker-months. This study does not estimate individual income loss, because no official dataset observes the individual income of tourism-dependent workers."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
