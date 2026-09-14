@@ -68,7 +68,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Exposure Coverage'"
+                  "Value": "'Share of exposure targeted'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

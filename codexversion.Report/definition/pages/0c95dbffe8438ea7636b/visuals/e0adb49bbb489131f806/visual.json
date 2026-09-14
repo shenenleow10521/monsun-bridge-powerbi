@@ -68,7 +68,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Estimated Training Gap'"
+                  "Value": "'Top-ranked pathway training estimate'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

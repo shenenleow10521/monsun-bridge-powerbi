@@ -19,32 +19,115 @@
               {
                 "textRuns": [
                   {
-                    "value": "GOVERNMENT ACTION TIMELINE"
+                    "value": "PROPOSED IMPLEMENTATION · NOT AGENCY COMMITMENTS",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "01  DOSM updates data   →   02  State unit detects exposure   →   03  District council prioritises workers"
+                    "value": "Before monsoon  |  Validate exposure → engage employers → confirm eligibility",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "04  HRD Corp maps skills   →   05  Providers allocate training   →   06  DOSM reviews post-monsoon outcomes"
+                    "value": "Before placement  |  Verify courses → allocate actual places → monitor attendance",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "ACT BEFORE THE WINDOW OPENS  ·  Data → exposure → transition → monitoring"
+                    "value": "After monsoon  |  Measure completion, placement and worker outcomes",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Named organisations are potential partners, not confirmed endorsers.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EAF5F4'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

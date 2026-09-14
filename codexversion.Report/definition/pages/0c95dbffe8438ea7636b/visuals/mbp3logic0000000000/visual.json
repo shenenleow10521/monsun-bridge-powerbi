@@ -4,65 +4,136 @@
   "position": {
     "x": 1300,
     "y": 490,
-    "z": 32,
-    "height": 240,
     "width": 540,
-    "tabOrder": 32
+    "height": 300,
+    "z": 60,
+    "tabOrder": 60
   },
   "visual": {
-    "visualType": "textbox",
-    "objects": {
-      "general": [
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_fish"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "official_fish.date",
+              "nativeQueryRef": "Month",
+              "displayName": "Month",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_fish"
+                    }
+                  },
+                  "Property": "state"
+                }
+              },
+              "queryRef": "official_fish.state",
+              "nativeQueryRef": "State",
+              "displayName": "State"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "official_fish"
+                        }
+                      },
+                      "Property": "landings_mt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(official_fish.landings_mt)",
+              "nativeQueryRef": "Marine landings (tonnes)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "official_fish"
+                  }
+                },
+                "Property": "date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
         {
           "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "WHY THIS PATHWAY RANKS FIRST"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Semantic match  ·  What skills carry over"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Geographic fit  ·  Can the transition happen locally"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Seasonal fit    ·  Is activity resilient in the monsoon window"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Training gap    ·  What must be learned first"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Capacity        ·  Evidence grade before allocation"
-                  }
-                ]
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
-            ]
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Official marine landings · latest complete year · tonnes'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

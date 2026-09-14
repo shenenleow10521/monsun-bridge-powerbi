@@ -151,7 +151,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tourism Exposure vs Monsoon Share · DERIVED'"
+                  "Value": "'Exposure profile · unverified prototype'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

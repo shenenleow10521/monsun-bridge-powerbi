@@ -68,7 +68,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Worker-Months Covered'"
+                  "Value": "'Exposure targeted · scenario'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

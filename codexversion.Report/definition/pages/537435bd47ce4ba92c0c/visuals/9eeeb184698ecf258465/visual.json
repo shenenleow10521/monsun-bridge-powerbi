@@ -68,7 +68,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cost per Worker-Month Covered'"
+                  "Value": "'Cost per targeted worker-month'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

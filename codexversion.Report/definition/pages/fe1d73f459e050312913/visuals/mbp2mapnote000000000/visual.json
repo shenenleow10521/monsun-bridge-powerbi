@@ -19,14 +19,26 @@
               {
                 "textRuns": [
                   {
-                    "value": "PILOT GEOGRAPHY · CONTEXT ONLY"
+                    "value": "PILOT GEOGRAPHY · CONTEXT ONLY",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "Static locator for Besut, Kuala Nerus, Marang and Rompin — not a statistical choropleth."
+                    "value": "Static locator for Besut, Kuala Nerus, Marang and Rompin — not a statistical choropleth.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

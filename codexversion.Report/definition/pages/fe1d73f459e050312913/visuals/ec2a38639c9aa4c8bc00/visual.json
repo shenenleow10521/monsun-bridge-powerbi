@@ -4,96 +4,86 @@
   "position": {
     "x": 560,
     "y": 680,
-    "z": 16,
-    "height": 360,
     "width": 620,
-    "tabOrder": 16
+    "height": 360,
+    "z": 60,
+    "tabOrder": 60
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_occupation"
+                      "Entity": "official_lfs"
                     }
                   },
-                  "Property": "occupation_name"
+                  "Property": "district"
                 }
               },
-              "queryRef": "dim_occupation.occupation_name",
-              "nativeQueryRef": "occupation_name",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "official_lfs.district",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "official_lfs"
                     }
                   },
-                  "Property": "Exposed Workers"
+                  "Property": "date"
                 }
               },
-              "queryRef": "_Measures.Exposed Workers",
-              "nativeQueryRef": "Exposed Workers"
+              "queryRef": "official_lfs.date",
+              "nativeQueryRef": "Reference date",
+              "displayName": "Reference date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "employed_thousands"
+                }
+              },
+              "queryRef": "official_lfs.employed_thousands",
+              "nativeQueryRef": "Employed ('000)",
+              "displayName": "Employed ('000)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "unemployment_rate_pct"
+                }
+              },
+              "queryRef": "official_lfs.unemployment_rate_pct",
+              "nativeQueryRef": "Unemployment (%)",
+              "displayName": "Unemployment (%)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Exposed Workers"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
-      "labels": [
+      "total": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
+            "totals": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -104,6 +94,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -118,66 +109,31 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Exposed Workers by Tourism Occupation · MODELLED'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Official labour context · OBSERVED · all four districts'"
                 }
               }
             },
-            "text": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Use for targeting, not as an employment register'"
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "08ad694ac4026722be17",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_occupation"
-              }
-            },
-            "Property": "occupation_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f2c1fc4d7ed9802b2d8d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Exposed Workers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
+    }
   }
 }

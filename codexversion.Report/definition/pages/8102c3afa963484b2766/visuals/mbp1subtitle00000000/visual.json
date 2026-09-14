@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "Predict the disruption · National quarterly tourism signal + verified monsoon windows"
+                    "value": "Predict the disruption · National quarterly tourism signal + verified monsoon windows",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

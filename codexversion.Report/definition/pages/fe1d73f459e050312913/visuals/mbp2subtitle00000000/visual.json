@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "Map the workforce · District labour statistics observed; local exposure outputs explicitly modelled"
+                    "value": "Map the workforce · District labour statistics observed; local exposure outputs explicitly modelled",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

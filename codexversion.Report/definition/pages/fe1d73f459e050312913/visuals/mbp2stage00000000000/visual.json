@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "02  WHO"
+                    "value": "02  WHO",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

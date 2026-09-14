@@ -1,59 +1,55 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "d843146099046c590118",
+  "name": "mbseasonfilter000001",
   "position": {
-    "x": 1580,
-    "y": 100,
-    "z": 7,
-    "height": 180,
-    "width": 260,
-    "tabOrder": 7
+    "x": 1420,
+    "y": 215,
+    "width": 460,
+    "height": 70,
+    "z": 60,
+    "tabOrder": 60
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_monsoon_window"
                     }
                   },
-                  "Property": "Skills Gap"
+                  "Property": "season_year"
                 }
               },
-              "queryRef": "_Measures.Skills Gap",
-              "nativeQueryRef": "Skills Gap"
+              "queryRef": "dim_monsoon_window.season_year",
+              "nativeQueryRef": "Season",
+              "active": true
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "isDefaultSort": true
       }
     },
     "objects": {
-      "label": [
+      "data": [
         {
           "properties": {
-            "show": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Dropdown'"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -68,7 +64,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Recorded gaps · prototype mapping'"
+                  "Value": "'Monsoon season · select one'"
                 }
               }
             },
@@ -93,7 +89,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

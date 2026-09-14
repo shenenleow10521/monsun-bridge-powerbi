@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "01  WHEN"
+                    "value": "01  WHEN",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

@@ -278,7 +278,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top Transition Pathways'"
+                  "Value": "'Transition ranking · unverified prototype scores'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

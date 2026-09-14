@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "04  WHAT ACTION"
+                    "value": "04  WHAT ACTION",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

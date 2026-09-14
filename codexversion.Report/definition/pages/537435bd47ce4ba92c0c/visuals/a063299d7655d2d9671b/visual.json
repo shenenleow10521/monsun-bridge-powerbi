@@ -19,25 +19,102 @@
               {
                 "textRuns": [
                   {
-                    "value": "MODELLED SCENARIO — NOT A BUDGET"
+                    "value": "MODELLED SCENARIO · NO CLAIM OF JOB PLACEMENT",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "All figures respond to the four planning parameters above; they are not official allocations or commitments."
+                    "value": "Coverage = participation × baseline WME, assuming uniform participation across exposure groups.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "Exposure is reported in worker-months. Individual income loss is not estimated because it is not observed in the official inputs."
+                    "value": "Costs: training + support at 60% of the input rate + 10% administration (team assumptions).",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "This does not estimate prevented income loss or demonstrate training effectiveness.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFF5E6'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

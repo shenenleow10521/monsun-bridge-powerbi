@@ -19,46 +19,115 @@
               {
                 "textRuns": [
                   {
-                    "value": "HOW THE MONSOON CLOCK WORKS"
+                    "value": "METHOD · REQUIRED BEFORE SUBMISSION",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "1  OBSERVE official quarterly tourism and METMalaysia dates"
+                    "value": "Verify quarterly tourism observations and baseline.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "2  DERIVE Monsoon Share for each quarter"
+                    "value": "Compute calendar overlap; do not invent monthly tourism.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "3  Estimate TSEI against the non-monsoon baseline"
+                    "value": "Evaluate forecasts out of sample before displaying them.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "4  Forecast with an interpretable time-series model and uncertainty"
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Decision use  ·  Trigger preparation before the exposure window opens"
+                    "value": "Availability of a model field is not evidence that it was trained.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EAF5F4'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

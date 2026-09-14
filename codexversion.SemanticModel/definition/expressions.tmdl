@@ -5,3 +5,6 @@ expression DataFolder = "C:\MonsunBridge\data\processed" meta [IsParameterQuery=
 
 	annotation PBI_ResultType = Text
 
+
+expression OfficialDataFolder = "C:\MonsunBridge\official\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	annotation PBI_ResultType = Text

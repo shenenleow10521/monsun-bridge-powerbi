@@ -198,7 +198,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Skill Evidence'"
+                  "Value": "'Source-occupation skill evidence · target-specific matching pending'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

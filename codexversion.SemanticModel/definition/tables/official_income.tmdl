@@ -1,0 +1,50 @@
+table official_income
+
+	column state
+		dataType: string
+		summarizeBy: none
+		sourceColumn: state
+
+	column district
+		dataType: string
+		summarizeBy: none
+		sourceColumn: district
+
+	column date
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: date
+		formatString: yyyy-MM-dd
+
+	column income_mean_rm
+		dataType: double
+		summarizeBy: none
+		sourceColumn: income_mean_rm
+		formatString: #,0.0
+
+	column income_median_rm
+		dataType: double
+		summarizeBy: none
+		sourceColumn: income_median_rm
+		formatString: #,0.0
+
+	column evidence_level
+		dataType: string
+		summarizeBy: none
+		sourceColumn: evidence_level
+
+	column source_url
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_url
+		dataCategory: WebUrl
+
+	partition official_income = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(OfficialDataFolder & "\official_income.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"state", type text}, {"district", type text}, {"date", type date}, {"income_mean_rm", type number}, {"income_median_rm", type number}, {"evidence_level", type text}, {"source_url", type text}}, "en-US")
+				in
+				    Typed

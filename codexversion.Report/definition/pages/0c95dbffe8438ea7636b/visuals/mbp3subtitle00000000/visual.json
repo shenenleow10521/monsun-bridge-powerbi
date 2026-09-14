@@ -3,9 +3,9 @@
   "name": "mbp3subtitle00000000",
   "position": {
     "x": 40,
-    "y": 82,
+    "y": 78,
     "z": 31,
-    "height": 28,
+    "height": 20,
     "width": 1800,
     "tabOrder": 31
   },
@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "Bridge the transition · AI-assisted skill matching with seasonality, geography, training-gap and capacity guardrails"
+                    "value": "Bridge the transition · AI-assisted skill matching with seasonality, geography, training-gap and capacity guardrails",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }

@@ -25,7 +25,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Monsoon Days' = AVERAGE( dim_monsoon_window[exposure_days] )
+	measure 'Monsoon Days' = SELECTEDVALUE(dim_monsoon_window[exposure_days])
 		formatString: #,0
 		lineageTag: 2bf9b7b8-312e-44d1-93ed-6e2f836ac17f
 
@@ -41,7 +41,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Transitioning Workers' = ROUND([Exposed Workers] * 'Participation Rate'[Participation Rate Value], 0)
+	measure 'Transitioning Workers' = SUMX(fct_workforce_exposure, ROUND(fct_workforce_exposure[tourism_linked_workers] * MIN(1, MAX(0, 'Participation Rate'[Participation Rate Value])), 0))
 		formatString: 0
 		lineageTag: 23f016af-0641-4f48-9bf1-d634fa63117d
 
@@ -60,7 +60,9 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Exposure Covered' = [Transitioning Workers] * [Avg Exposure Months]
+	measure 'Exposure Covered' =
+			VAR p = MIN(1, MAX(0, 'Participation Rate'[Participation Rate Value]))
+			RETURN [Worker-Month Exposure] * p
 		formatString: #,0
 		lineageTag: e549faf4-f8a7-4201-a589-eb5a87c5bbb8
 
@@ -71,12 +73,12 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Cost per Worker-Month Avoided' = DIVIDE( [Programme Cost], [Exposure Covered], 0 )
+	measure 'Cost per Worker-Month Avoided' = DIVIDE( [Programme Cost], [Exposure Covered] )
 		lineageTag: 0ef2fd1c-f8c3-449f-8859-c4852403318a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Coverage Rate' = DIVIDE( [Exposure Covered], [Worker-Month Exposure], 0 )
+	measure 'Coverage Rate' = DIVIDE( [Exposure Covered], [Worker-Month Exposure] )
 		lineageTag: 28f318b4-00d3-4efc-a1f2-612cbd50c1ea
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -105,11 +107,11 @@ table _Measures
 	measure 'Capacity Evidence' =
 			
 			SWITCH(
-			    SELECTEDVALUE( fct_transition_pathway[capacity_evidence_level] ),
+			    SELECTEDVALUE( fct_transition_pathway[capacity_evidence_level], "MIXED_OR_UNKNOWN" ),
 			    "L1_OBSERVED", "L1 · Observed vacancies",
 			    "L2_PROXY",    "L2 · Sector proxy",
 			    "L3_MODELLED", "L3 · Modelled",
-			    "Not labelled"
+			    "Mixed / unverified"
 			)
 		lineageTag: ccfb1d7d-a80f-4b76-a4b3-2e75d4146a16
 
@@ -117,7 +119,7 @@ table _Measures
 		formatString: 0
 		lineageTag: f9f7edf1-6d57-48c4-aba0-d2578d16b96c
 
-	measure 'Avg Training Gap' = AVERAGE( fct_transition_pathway[training_gap_months] )
+	measure 'Avg Training Gap' = CALCULATE(AVERAGE(fct_transition_pathway[training_gap_months]), fct_transition_pathway[rank] = 1)
 		lineageTag: 8520aeac-56ed-4073-960d-c68056f9b946
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -164,7 +166,7 @@ table _Measures
 			    IF(
 			        ISFILTERED( fct_tourism_exposure[state_code] ),
 			        SELECTEDVALUE( fct_tourism_exposure[state_code], "Multiple") & " modelled allocation",
-			        "National quarterly signal"
+			        "Prototype allocation — source audit pending"
 			    )
 		lineageTag: bd2c2369-7185-47ee-b367-d65524541e4f
 

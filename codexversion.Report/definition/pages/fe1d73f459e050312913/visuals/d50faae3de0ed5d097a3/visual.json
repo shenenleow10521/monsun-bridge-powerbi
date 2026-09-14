@@ -4,10 +4,10 @@
   "position": {
     "x": 1200,
     "y": 830,
-    "z": 18,
-    "height": 210,
     "width": 680,
-    "tabOrder": 18
+    "height": 210,
+    "z": 60,
+    "tabOrder": 60
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,75 +20,51 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_evidence_level"
+                      "Entity": "official_income"
                     }
                   },
-                  "Property": "level_name_en"
+                  "Property": "district"
                 }
               },
-              "queryRef": "dim_evidence_level.level_name_en",
-              "nativeQueryRef": "Level",
-              "displayName": "Level"
+              "queryRef": "official_income.district",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_income"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "official_income.date",
+              "nativeQueryRef": "Reference date",
+              "displayName": "Reference date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_income"
+                    }
+                  },
+                  "Property": "income_median_rm"
+                }
+              },
+              "queryRef": "official_income.income_median_rm",
+              "nativeQueryRef": "Median household income (RM)",
+              "displayName": "Median household income (RM)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_evidence_level"
-                  }
-                },
-                "Property": "level_name_en"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
-      "values": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "dim_evidence_level"
-                            }
-                          },
-                          "Property": "hex_color"
-                        }
-                      },
-                      "Function": 3
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "dim_evidence_level.level_name_en"
-          }
-        }
-      ],
       "total": [
         {
           "properties": {
@@ -103,6 +79,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -117,32 +94,31 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evidence Ledger · Source Status'"
+                  "Value": "'Official household context · OBSERVED · not worker income'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "cd62b95d4d538db90754",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_evidence_level"
-              }
-            },
-            "Property": "level_name_en"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
+    }
   }
 }

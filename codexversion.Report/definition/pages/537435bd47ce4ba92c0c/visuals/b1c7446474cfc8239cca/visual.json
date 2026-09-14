@@ -116,7 +116,25 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Programme Cost & Remaining Exposure'"
+                  "Value": "'Scenario budget vs untargeted exposure'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
                 }
               }
             }

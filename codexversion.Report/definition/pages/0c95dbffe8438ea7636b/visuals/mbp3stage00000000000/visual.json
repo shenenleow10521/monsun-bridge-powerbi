@@ -19,7 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "03  WHERE TO"
+                    "value": "03  WHERE TO",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "fontWeight": "bold",
+                      "color": "#173B57"
+                    }
                   }
                 ]
               }
