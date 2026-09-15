@@ -69,12 +69,27 @@
                       "Entity": "Tourism"
                     }
                   },
-                  "Property": "source_url"
+                  "Property": "evidence_level"
                 }
               },
-              "queryRef": "Tourism.source_url",
-              "nativeQueryRef": "DOSM publication",
-              "displayName": "DOSM publication"
+              "queryRef": "Tourism.evidence_level",
+              "nativeQueryRef": "Evidence",
+              "displayName": "Evidence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tourism"
+                    }
+                  },
+                  "Property": "source_name"
+                }
+              },
+              "queryRef": "Tourism.source_name",
+              "nativeQueryRef": "Source",
+              "displayName": "Source"
             }
           ]
         }

@@ -16,6 +16,12 @@ table Labour
 		summarizeBy: none
 		formatString: yyyy
 
+	column year
+		dataType: int64
+		sourceColumn: year
+		summarizeBy: none
+		formatString: 0
+
 	column labour_force_thousands
 		dataType: double
 		sourceColumn: labour_force_thousands
@@ -34,6 +40,16 @@ table Labour
 		summarizeBy: none
 		formatString: 0.0
 
+	column evidence_level
+		dataType: string
+		sourceColumn: evidence_level
+		summarizeBy: none
+
+	column source_name
+		dataType: string
+		sourceColumn: source_name
+		summarizeBy: none
+
 	column source_url
 		dataType: string
 		sourceColumn: source_url
@@ -43,9 +59,9 @@ table Labour
 	partition Labour = m
 		mode: import
 		source =
-				#table(type table [state = text, district = text, date = date, labour_force_thousands = number, employed_thousands = number, unemployment_rate_pct = number, source_url = text], {
-				    {"Pahang", "Rompin", #date(2024, 1, 1), 41.1, 40.3, 1.9, "https://data.gov.my/data-catalogue/lfs_district"},
-				    {"Terengganu", "Besut", #date(2024, 1, 1), 64.1, 61.8, 3.5, "https://data.gov.my/data-catalogue/lfs_district"},
-				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 63.4, 61.3, 3.3, "https://data.gov.my/data-catalogue/lfs_district"},
-				    {"Terengganu", "Marang", #date(2024, 1, 1), 48.1, 46.8, 2.6, "https://data.gov.my/data-catalogue/lfs_district"}
+				#table(type table [state = text, district = text, date = date, year = Int64.Type, labour_force_thousands = number, employed_thousands = number, unemployment_rate_pct = number, evidence_level = text, source_name = text, source_url = text], {
+				    {"Pahang", "Rompin", #date(2024, 1, 1), 2024, 41.1, 40.3, 1.9, "OBSERVED", "DOSM LFS district", "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Besut", #date(2024, 1, 1), 2024, 64.1, 61.8, 3.5, "OBSERVED", "DOSM LFS district", "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 2024, 63.4, 61.3, 3.3, "OBSERVED", "DOSM LFS district", "https://data.gov.my/data-catalogue/lfs_district"},
+				    {"Terengganu", "Marang", #date(2024, 1, 1), 2024, 48.1, 46.8, 2.6, "OBSERVED", "DOSM LFS district", "https://data.gov.my/data-catalogue/lfs_district"}
 				})

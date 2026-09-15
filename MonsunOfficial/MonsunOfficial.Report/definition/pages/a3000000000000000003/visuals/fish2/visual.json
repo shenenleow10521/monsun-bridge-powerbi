@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Monthly records"
+                  "Property": "Peak monthly landings display"
                 }
               },
-              "queryRef": "Metrics.Monthly records",
-              "nativeQueryRef": "Observed state-month records · 2023",
-              "displayName": "Observed state-month records · 2023"
+              "queryRef": "Metrics.Peak monthly landings display",
+              "nativeQueryRef": "OBSERVED · peak combined month · tonnes · 2023",
+              "displayName": "OBSERVED · peak combined month · tonnes · 2023"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed state-month records · 2023'"
+                  "Value": "'OBSERVED · peak combined month · tonnes · 2023'"
                 }
               }
             }

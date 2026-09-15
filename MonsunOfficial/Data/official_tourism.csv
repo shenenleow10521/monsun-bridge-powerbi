@@ -1,5 +1,5 @@
-date,quarter,visitors_million,expenditure_billion,source_url
-2025-01-01,2025 Q1,69.7,29.4,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-first-quarter-2025
-2025-04-01,2025 Q2,73.8,29.2,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-second-quarter-2025
-2025-07-01,2025 Q3,72.6,29.8,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-third-quarter-2025
-2025-10-01,2025 Q4,74.0,32.6,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-q42025
+date,quarter,visitors_million,expenditure_billion,evidence_level,source_name,source_url
+2025-01-01,2025 Q1,69.7,29.4,OBSERVED,DOSM quarterly release,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-first-quarter-2025
+2025-04-01,2025 Q2,73.8,29.2,OBSERVED,DOSM quarterly release,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-second-quarter-2025
+2025-07-01,2025 Q3,72.6,29.8,OBSERVED,DOSM quarterly release,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-third-quarter-2025
+2025-10-01,2025 Q4,74.0,32.6,OBSERVED,DOSM quarterly release,https://www.dosm.gov.my/portal-main/release-content/malaysias-domestic-tourism-survey-q42025

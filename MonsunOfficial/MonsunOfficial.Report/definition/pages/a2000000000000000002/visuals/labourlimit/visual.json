@@ -59,7 +59,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Income table remains a four-district reference.",
+                    "value": "District selection filters employment and income together.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",

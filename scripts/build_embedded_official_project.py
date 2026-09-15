@@ -102,10 +102,21 @@ def grid(page,name,xywh,t,cols,label):
     o['visual']['objects']={'total':[{'properties':{'totals':lit('false')}}]}
     title(o,label); return o
 
-def slicer(page,name,xywh,t,c,label):
+def slicer(page,name,xywh,t,c,label,default=None,integer=False):
     o=visual(page,name,'slicer',xywh)
     o['visual']['query']={'queryState':{'Values':{'projections':[projection(field(t,c),t+'.'+c,label)]}}}
     o['visual']['objects']={'data':[{'properties':{'mode':string('Dropdown')}}],'selection':[{'properties':{'singleSelect':lit('true')}}]}
+    if default is not None:
+        suffix='L' if integer else 'D'
+        o['visual']['objects']['general']=[{'properties':{'filter':{'filter':{
+            'Version':2,
+            'From':[{'Name':'p','Entity':t,'Type':0}],
+            'Where':[{'Condition':{'Comparison':{
+                'ComparisonKind':0,
+                'Left':{'Column':{'Expression':{'SourceRef':{'Source':'p'}},'Property':c}},
+                'Right':{'Literal':{'Value':f'{default}{suffix}'}}
+            }}}]
+        }}}}]
     title(o,label);return o
 
 def build(snapshot):
@@ -118,6 +129,12 @@ def build(snapshot):
     labour=read_csv(snapshot/'processed'/'official_lfs.csv')
     income=read_csv(snapshot/'processed'/'official_income.csv')
     fish=read_csv(snapshot/'processed'/'official_fish.csv')
+    for r in labour:
+        r['year']=int(r['date'][:4]);r['source_name']='DOSM LFS district'
+    for r in income:
+        r['year']=int(r['date'][:4]);r['source_name']='DOSM HIES district'
+    for r in fish:
+        r['source_name']='DOF fish landings'
     for item in status['sources']:
         raw=snapshot/'raw'/(item['dataset']+'.csv')
         if hashlib.sha256(raw.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Source hash mismatch')
@@ -128,12 +145,12 @@ def build(snapshot):
     src='https://www.dosm.gov.my/portal-main/release-content/'
     tourism=[]
     releases=[('2025-01-01','2025 Q1',69.7,29.4,'malaysias-domestic-tourism-survey-first-quarter-2025'),('2025-04-01','2025 Q2',73.8,29.2,'malaysias-domestic-tourism-survey-second-quarter-2025'),('2025-07-01','2025 Q3',72.6,29.8,'malaysias-domestic-tourism-survey-third-quarter-2025'),('2025-10-01','2025 Q4',74.0,32.6,'malaysias-domestic-tourism-survey-q42025')]
-    for dt,q,v,e,url in releases:tourism.append(dict(date=dt,quarter=q,visitors_million=v,expenditure_billion=e,source_url=src+url))
+    for dt,q,v,e,url in releases:tourism.append(dict(date=dt,quarter=q,visitors_million=v,expenditure_billion=e,evidence_level='OBSERVED',source_name='DOSM quarterly release',source_url=src+url))
     with (OUT/'Data'/'official_tourism.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(tourism[0]));w.writeheader();w.writerows(tourism)
     monsoon=[
-        {'season':'2020/21','onset_date':'2020-11-11','withdrawal_date':'2021-03-28','duration_days':138,'method':'NEMI','reference':'Report p. 5 (PDF p. 10)','source_url':'https://www.met.gov.my/data/research/researchpapers/2023/RP01_2023.pdf'},
-        {'season':'2024/25','onset_date':'2024-11-13','withdrawal_date':'2025-03-25','duration_days':133,'method':'NEMI','reference':'Report p. 1 (PDF p. 4)','source_url':'https://www.met.gov.my/data/research/researchpapers/2025/RP01_2025.pdf'}]
+        {'season':'2020/21','onset_date':'2020-11-11','withdrawal_date':'2021-03-28','duration_days':138,'method':'NEMI','evidence_level':'OBSERVED','reference':'Report p. 5','source_name':'METMalaysia RP01/2023','source_url':'https://www.met.gov.my/data/research/researchpapers/2023/RP01_2023.pdf'},
+        {'season':'2024/25','onset_date':'2024-11-13','withdrawal_date':'2025-03-25','duration_days':133,'method':'NEMI','evidence_level':'OBSERVED','reference':'Report p. 1','source_name':'METMalaysia RP01/2025','source_url':'https://www.met.gov.my/data/research/researchpapers/2025/RP01_2025.pdf'}]
     with (OUT/'Data'/'official_monsoon_windows.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(monsoon[0]));w.writeheader();w.writerows(monsoon)
     save_json(OUT/'Data'/'PROJECT_DATA_STATUS.json',{
@@ -148,12 +165,12 @@ def build(snapshot):
         'modelled':[{'output':'P4 programme budget','basis':'all-sector employed persons and user-selected planning assumptions'}],
         'not_yet_supported':['district tourism-worker counts or Worker-Month Exposure','target-specific occupational similarity and training-gap scores','vacancies or employer-confirmed absorption capacity','forecasted TSEI and a contemporaneous CSI','Power BI Desktop render and interaction test']})
     districts=[{'state':r['state'],'district':r['district']} for r in labour]
-    table('Tourism',[('date','dateTime','yyyy-MM-dd'),('quarter','string',''),('visitors_million','double','0.0'),('expenditure_billion','double','0.0'),('source_url','string','')],tourism)
-    table('Monsoon',[('season','string',''),('onset_date','dateTime','dd MMM yyyy'),('withdrawal_date','dateTime','dd MMM yyyy'),('duration_days','int64','0'),('method','string',''),('reference','string',''),('source_url','string','')],monsoon)
+    table('Tourism',[('date','dateTime','yyyy-MM-dd'),('quarter','string',''),('visitors_million','double','0.0'),('expenditure_billion','double','0.0'),('evidence_level','string',''),('source_name','string',''),('source_url','string','')],tourism)
+    table('Monsoon',[('season','string',''),('onset_date','dateTime','dd MMM yyyy'),('withdrawal_date','dateTime','dd MMM yyyy'),('duration_days','int64','0'),('method','string',''),('evidence_level','string',''),('reference','string',''),('source_name','string',''),('source_url','string','')],monsoon)
     table('District',[('state','string',''),('district','string','')],districts)
-    table('Labour',[('state','string',''),('district','string',''),('date','dateTime','yyyy'),('labour_force_thousands','double','0.0'),('employed_thousands','double','0.0'),('unemployment_rate_pct','double','0.0'),('source_url','string','')],labour)
-    table('Income',[('state','string',''),('district','string',''),('date','dateTime','yyyy'),('income_mean_rm','double','#,0'),('income_median_rm','double','#,0'),('source_url','string','')],income)
-    table('Fish',[('state','string',''),('date','dateTime','MMM yyyy'),('month','int64','0'),('landings_mt','double','#,0'),('source_url','string','')],fish)
+    table('Labour',[('state','string',''),('district','string',''),('date','dateTime','yyyy'),('year','int64','0'),('labour_force_thousands','double','0.0'),('employed_thousands','double','0.0'),('unemployment_rate_pct','double','0.0'),('evidence_level','string',''),('source_name','string',''),('source_url','string','')],labour)
+    table('Income',[('state','string',''),('district','string',''),('date','dateTime','yyyy'),('year','int64','0'),('income_mean_rm','double','#,0'),('income_median_rm','double','#,0'),('evidence_level','string',''),('source_name','string',''),('source_url','string','')],income)
+    table('Fish',[('state','string',''),('date','dateTime','MMM yyyy'),('month','int64','0'),('landings_mt','double','#,0'),('evidence_level','string',''),('source_name','string',''),('source_url','string','')],fish)
     table('Participation',[('rate','double','0%')],[{'rate':i/100} for i in range(0,101,5)])
     table('Duration',[('months','int64','0')],[{'months':i} for i in range(1,7)])
     table('UnitCost',[('rm','int64','#,0')],[{'rm':i} for i in range(500,3001,100)])
@@ -167,20 +184,33 @@ def build(snapshot):
      'Latest observed NEM duration':('CALCULATE(MAX(Monsoon[duration_days]), Monsoon[season] = "2024/25")','0'),
      'Employed persons':('SUM(Labour[employed_thousands]) * 1000','#,0'),
      'Labour force persons':('SUM(Labour[labour_force_thousands]) * 1000','#,0'),
+     'Employed persons display':('FORMAT([Employed persons], "#,0")',''),
+     'Labour force persons display':('FORMAT([Labour force persons], "#,0")',''),
+     'Mean household income RM':('MAX(Income[income_mean_rm])','"RM "#,0'),
+     'Median household income RM':('MAX(Income[income_median_rm])','"RM "#,0'),
      'District count':('DISTINCTCOUNT(Labour[district])','0'),
      'Marine landings (tonnes)':('SUM(Fish[landings_mt])','#,0'),
+     'Marine landings display':('FORMAT([Marine landings (tonnes)], "#,0")',''),
+     'Peak monthly landings':('MAXX(VALUES(Fish[date]), CALCULATE([Marine landings (tonnes)]))','#,0'),
+     'Peak monthly landings display':('FORMAT([Peak monthly landings], "#,0")',''),
      'Monthly records':('COUNTROWS(Fish)','0'),
      'Scenario rate':('SELECTEDVALUE(Participation[rate], 0.05)','0%'),
      'Scenario duration':('SELECTEDVALUE(Duration[months], 1)','0'),
      'Scenario unit cost':('SELECTEDVALUE(UnitCost[rm], 1100)','#,0'),
      'Scenario participants':('ROUND([Employed persons] * [Scenario rate], 0)','#,0'),
+     'Scenario participants display':('FORMAT([Scenario participants], "#,0")',''),
      'Scenario training budget':('[Scenario participants] * [Scenario duration] * [Scenario unit cost]','"RM "#,0'),
      'Scenario admin budget':('[Scenario training budget] * 0.1','"RM "#,0'),
      'Scenario total budget':('[Scenario training budget] + [Scenario admin budget]','"RM "#,0'),
-     'Scenario cost per participant':('DIVIDE([Scenario total budget], [Scenario participants])','"RM "#,0')}
+     'Scenario total budget display':('"RM " & FORMAT(DIVIDE([Scenario total budget], 1000000), "0.0") & "M"',''),
+     'Scenario cost per participant':('DIVIDE([Scenario total budget], [Scenario participants])','"RM "#,0'),
+     'Scenario cost per participant display':('"RM " & FORMAT([Scenario cost per participant], "#,0")','')}
     p=MODEL/'definition'/'tables'/'Metrics.tmdl';s=p.read_text()
     declarations=''
-    for name,(dax,fmt) in metrics.items():declarations+=f"\n\tmeasure '{name}' = {dax}\n\t\tformatString: {fmt}\n"
+    for name,(dax,fmt) in metrics.items():
+        declarations+=f"\n\tmeasure '{name}' = {dax}\n"
+        if fmt:
+            declarations+=f"\t\tformatString: {fmt}\n"
     p.write_text(s.replace('table Metrics\n','table Metrics\n'+declarations),encoding='utf-8')
     (MODEL/'definition'/'relationships.tmdl').write_text('relationship LabourDistrict\n\tfromColumn: Labour.district\n\ttoColumn: District.district\n\nrelationship IncomeDistrict\n\tfromColumn: Income.district\n\ttoColumn: District.district\n',encoding='utf-8')
     (MODEL/'definition'/'model.tmdl').write_text('model Model\n\tculture: en-GB\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-GB\n\tvalueFilterBehavior: independent\n\nannotation __PBI_TimeIntelligenceEnabled = 0\n\n'+'\n'.join('ref table '+n for n in ['Tourism','Monsoon','District','Labour','Income','Fish','Participation','Duration','UnitCost','Metrics'])+'\n\nref relationship LabourDistrict\nref relationship IncomeDistrict\n',encoding='utf-8')
@@ -203,35 +233,35 @@ def build(snapshot):
     for i,p in enumerate(PAGES):
         save_json(REPORT/'definition'/'pages'/p/'page.json',{'$schema':'https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json','name':p,'displayName':names[i],'displayOption':'FitToPage','width':1600,'height':900})
         text(p,f'header{i}',(32,24,1536,82),[f'MONSUN BRIDGE     {i+1:02d} / {names[i][3:]}',subtitles[i]],NAVY,'#FFFFFF',22)
-        text(p,f'footer{i}',(32,856,1536,28),['Official-data edition • Source dates and units are retained • Desktop rendering remains to be verified'],None,MUTED,10)
+        text(p,f'footer{i}',(32,856,1536,28),['OBSERVED = official published value • MODELLED = transparent scenario • Full source URLs retained in Data/'],None,MUTED,10)
     p=PAGES[0]
     card(p,'tourism1',(32,130,490,125),'Q4 visitors (million)','2025 Q4 domestic visitors · million')
     card(p,'tourism2',(554,130,490,125),'Q4 expenditure (RM billion)','2025 Q4 domestic expenditure · RM billion')
     card(p,'tourism3',(1076,130,492,125),'Latest observed NEM duration','2024/25 NEM window · days · NEMI')
     chart(p,'visitorchart',(32,282,752,330),'clusteredColumnChart','Tourism','quarter',['Visitors (million)'],'Domestic visitors · million · national')
     chart(p,'expenditurechart',(816,282,752,330),'lineChart','Tourism','quarter',['Expenditure (RM billion)'],'Domestic expenditure · RM billion · nominal')
-    grid(p,'tourismledger',(32,640,752,192),'Tourism',[('quarter','Quarter'),('visitors_million','Visitors (million)'),('expenditure_billion','Expenditure (RM billion)'),('source_url','DOSM publication')],'Published tourism observations')
-    grid(p,'monsoonledger',(816,640,752,192),'Monsoon',[('season','Season'),('onset_date','Onset'),('withdrawal_date','Withdrawal'),('duration_days','Days'),('method','Method'),('reference','Page'),('source_url','METMalaysia source')],'Observed Northeast Monsoon windows · not a forecast')
+    grid(p,'tourismledger',(32,640,752,192),'Tourism',[('quarter','Quarter'),('visitors_million','Visitors (million)'),('expenditure_billion','Expenditure (RM billion)'),('evidence_level','Evidence'),('source_name','Source')],'Published tourism observations')
+    grid(p,'monsoonledger',(816,640,752,192),'Monsoon',[('season','Season'),('onset_date','Onset'),('withdrawal_date','Withdrawal'),('duration_days','Days'),('method','Method'),('evidence_level','Evidence'),('reference','Page')],'Observed Northeast Monsoon windows · not a forecast')
     p=PAGES[1]
-    card(p,'labour1',(32,130,490,125),'Employed persons','Employed persons · selected districts · 2024')
-    card(p,'labour2',(554,130,490,125),'Labour force persons','Labour force · selected districts · 2024')
+    card(p,'labour1',(32,130,490,125),'Employed persons display','OBSERVED · employed persons · selected districts · 2024')
+    card(p,'labour2',(554,130,490,125),'Labour force persons display','OBSERVED · labour force · selected districts · 2024')
     slicer(p,'labourselection',(1076,130,492,125),'District','district','District · filters employment and income')
     chart(p,'employmentchart',(32,282,752,310),'clusteredBarChart','District','district',['Employed persons'],'Employment by district · persons · 2024')
-    grid(p,'incometable',(816,282,752,310),'Income',[('district','District'),('date','Year'),('income_mean_rm','Mean (RM)'),('income_median_rm','Median (RM)')],'Monthly household income · all four districts · 2024')
-    grid(p,'labourtable',(32,620,1000,212),'Labour',[('district','District'),('employed_thousands','Employed (thousands)'),('unemployment_rate_pct','Unemployment (%)'),('source_url','Source')],'Published employment statistics')
-    text(p,'labourlimit',(1060,620,508,212),['Scope of the workforce base','Published employment is in thousands; headline cards convert to persons.','These totals include every industry. They are not tourism-worker counts.','Income table remains a four-district reference.'], '#E7F1F0')
+    chart(p,'incomechart',(816,282,752,310),'clusteredColumnChart','District','district',['Mean household income RM','Median household income RM'],'Monthly household income by district · RM · 2024')
+    grid(p,'labourtable',(32,620,1000,212),'Labour',[('district','District'),('year','Year'),('employed_thousands','Employed (thousands)'),('unemployment_rate_pct','Unemployment (%)'),('evidence_level','Evidence'),('source_name','Source')],'Published employment statistics')
+    text(p,'labourlimit',(1060,620,508,212),['Scope of the workforce base','Published employment is in thousands; headline cards convert to persons.','These totals include every industry. They are not tourism-worker counts.','District selection filters employment and income together.'], '#E7F1F0')
     p=PAGES[2]
-    card(p,'fish1',(32,130,490,125),'Marine landings (tonnes)','Marine fish landed · tonnes · 2023')
-    card(p,'fish2',(554,130,490,125),'Monthly records','Observed state-month records · 2023')
+    card(p,'fish1',(32,130,490,125),'Marine landings display','OBSERVED · marine fish landed · tonnes · 2023')
+    card(p,'fish2',(554,130,490,125),'Peak monthly landings display','OBSERVED · peak combined month · tonnes · 2023')
     slicer(p,'fishstate',(1076,130,492,125),'Fish','state','Landing state')
     chart(p,'fishchart',(32,282,1000,360),'lineChart','Fish','date',['Marine landings (tonnes)'],'Monthly marine landings · tonnes · 2023',series='state')
-    text(p,'skillstatus',(1060,282,508,360),['Skill Bridge · evidence needed','Occupational texts and training records are not loaded in this edition.','No similarity scores, vacancies or placement guarantees are shown.','Marine landings indicate activity, not aquaculture production or hiring demand.'], '#E7F1F0')
-    grid(p,'fishledger',(32,670,1000,162),'Fish',[('state','State'),('date','Month'),('landings_mt','Tonnes'),('source_url','DOF source')],'Underlying monthly observations')
+    text(p,'skillstatus',(1060,282,508,360),['Evidence boundary','Observed: monthly marine landings by state.','Not observed: vacancies, worker skills or hiring capacity.','Policy use: screen seasonal timing, then validate employers before recommending a pathway.'], '#E7F1F0')
+    grid(p,'fishledger',(32,670,1000,162),'Fish',[('state','State'),('date','Month'),('landings_mt','Tonnes'),('evidence_level','Evidence'),('source_name','Source')],'Underlying monthly observations')
     text(p,'fishlimit',(1060,670,508,162),['Time alignment','Fish observations are from 2023; the tourism panel is 2025.','A contemporaneous CSI has not been calculated across these unmatched periods.'], '#FFF3DF')
     p=PAGES[3]
-    for name,t,c,label,x in [('p_rate','Participation','rate','Planning share · defaults to 5%',32),('p_months','Duration','months','Training duration · defaults to 1 month',424),('p_cost','UnitCost','rm','RM per participant-month · default 1,100',816),('p_district','Labour','district','District · all sectors',1208)]:
-        slicer(p,name,(x,130,360,115),'District' if t=='Labour' else t,c,label)
-    for name,m,label,x in [('scenario1','Employed persons','Observed workforce base · persons',32),('scenario2','Scenario participants','Scenario participants · assumed share',424),('scenario3','Scenario total budget','Scenario budget · RM',816),('scenario4','Scenario cost per participant','Scenario cost per participant · RM',1208)]:
+    for name,t,c,label,x,default,integer in [('p_rate','Participation','rate','Planning share · selected 5%',32,'0.05',False),('p_months','Duration','months','Training duration · selected 1 month',424,'1',True),('p_cost','UnitCost','rm','RM per participant-month · selected 1,100',816,'1100',True),('p_district','Labour','district','District · all sectors',1208,None,False)]:
+        slicer(p,name,(x,130,360,115),'District' if t=='Labour' else t,c,label,default,integer)
+    for name,m,label,x in [('scenario1','Employed persons display','OBSERVED · workforce base · persons',32),('scenario2','Scenario participants display','MODELLED · scenario participants',424),('scenario3','Scenario total budget display','MODELLED · programme budget',816),('scenario4','Scenario cost per participant display','MODELLED · cost per participant',1208)]:
         card(p,name,(x,272,360,135),m,label)
     chart(p,'budgetchart',(32,435,1000,320),'clusteredColumnChart','District','district',['Scenario training budget','Scenario admin budget'],'Training and administration · modelled budget')
     text(p,'scenarioassumptions',(1060,435,508,320),['ASSUMPTIONS · NOT OFFICIAL BUDGETS','Participants = employed persons × chosen share.','Training = participants × months × monthly rate.','Administration = 10% of training cost.','This is a broad all-sector envelope, not verified tourism eligibility or avoided income loss.'], '#FFF3DF')
@@ -248,8 +278,8 @@ def build(snapshot):
                 assert not overlap,(a['name'],b['name'])
         checks.append({'page':page,'visuals':len(items),'bounds_and_overlap':'PASS'})
     observed_employed=sum(float(r['employed_thousands'])*1000 for r in labour)
-    save_json(OUT/'BUILD_CHECKS.json',{'raw_hashes_verified':True,'official_script_executed':True,'embedded_rows':{'Labour':len(labour),'Income':len(income),'Fish':len(fish),'Tourism':len(tourism),'Monsoon':len(monsoon)},'employed_persons_total':observed_employed,'latest_observed_nem_duration_days':133,'scenario_default_participants':round(observed_employed*.05),'scenario_default_budget_rm':round(observed_employed*.05)*1100*1.1,'checks':checks,'Power_BI_Desktop_tested':False})
-    (OUT/'README.txt').write_text('MONSUN BRIDGE — OFFICIAL DATA EDITION\n\nOpen MonsunOfficial.pbip in a current Power BI Desktop supporting PBIP/PBIR.\nAll source rows are embedded in M tables; no CSV path, API, credentials or Python runtime is required to load this snapshot. Use Refresh if tables have not loaded.\n\nP1: 2025 national quarterly tourism observations and two METMalaysia NEMI-derived observed monsoon windows. Not a tourism-disruption forecast.\nP2: 2024 official district labour force and household income. The district slicer filters both sections.\nP3: 2023 official monthly marine fish landings. Skills and capacities remain unavailable.\nP4: all-sector workforce budget scenario. Parameters and 10% admin coefficient are analytical assumptions.\n\nSlicers are page-specific.\nRaw-source hashes and download metadata: Data/SOURCE_MANIFEST.json.\nReproduction: scripts/build_official_data.py and scripts/build_embedded_official_project.py in the repository.\n\nThis is a separate factual-baseline edition; original research project is preserved. It is not the completed three-engine submission.\nPower BI Desktop cannot be executed here. Opening, visual rendering and offline interaction must be confirmed on Windows before Save As PBIX and PDF export. No final PBIX or PDF is claimed.\n',encoding='utf-8')
+    save_json(OUT/'BUILD_CHECKS.json',{'raw_hashes_verified':True,'official_script_executed':True,'embedded_rows':{'Labour':len(labour),'Income':len(income),'Fish':len(fish),'Tourism':len(tourism),'Monsoon':len(monsoon)},'employed_persons_total':observed_employed,'latest_observed_nem_duration_days':133,'scenario_default_participants':round(observed_employed*.05),'scenario_default_budget_rm':round(observed_employed*.05)*1100*1.1,'checks':checks,'Power_BI_Desktop_render_confirmed_by_user_on':'2026-09-15','Power_BI_Desktop_full_interaction_and_save_tested':False})
+    (OUT/'README.txt').write_text('MONSUN BRIDGE — OFFICIAL DATA EDITION\n\nOpen MonsunOfficial.pbip in a current Power BI Desktop supporting PBIP/PBIR.\nAll source rows are embedded in M tables; no CSV path, API, credentials or Python runtime is required to load this snapshot. Use Refresh if tables have not loaded.\n\nP1: 2025 national quarterly tourism observations and two METMalaysia NEMI-derived observed monsoon windows. Not a tourism-disruption forecast.\nP2: 2024 official district labour force and household income. The district slicer filters both sections.\nP3: 2023 official monthly marine fish landings. Skills and capacities remain unavailable.\nP4: all-sector workforce budget scenario. Parameters and 10% admin coefficient are analytical assumptions.\n\nSlicers are page-specific. Full source URLs are retained in the embedded tables and Data folder; compact source names are shown on canvas for readability.\nRaw-source hashes and download metadata: Data/SOURCE_MANIFEST.json.\nReproduction: scripts/build_official_data.py and scripts/build_embedded_official_project.py in the repository.\n\nPower BI Desktop rendering and data refresh were confirmed from user screenshots on 15 September 2026. Test all slicer interactions and Save As PBIX on the submission computer before delivery.\nThis remains a factual-baseline edition, not a completed occupational AI model; no final PBIX or PDF is claimed.\n',encoding='utf-8')
     print(json.dumps(json.loads((OUT/'BUILD_CHECKS.json').read_text()),indent=2))
 
 if __name__=='__main__':

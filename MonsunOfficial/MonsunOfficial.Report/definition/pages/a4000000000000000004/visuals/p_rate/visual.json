@@ -28,8 +28,8 @@
                 }
               },
               "queryRef": "Participation.rate",
-              "nativeQueryRef": "Planning share · defaults to 5%",
-              "displayName": "Planning share · defaults to 5%"
+              "nativeQueryRef": "Planning share · selected 5%",
+              "displayName": "Planning share · selected 5%"
             }
           ]
         }
@@ -61,6 +61,48 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "Participation",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "p"
+                              }
+                            },
+                            "Property": "rate"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "0.05D"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -77,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Planning share · defaults to 5%'"
+                  "Value": "'Planning share · selected 5%'"
                 }
               }
             }

@@ -39,6 +39,21 @@
                       "Entity": "Labour"
                     }
                   },
+                  "Property": "year"
+                }
+              },
+              "queryRef": "Labour.year",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labour"
+                    }
+                  },
                   "Property": "employed_thousands"
                 }
               },
@@ -69,10 +84,25 @@
                       "Entity": "Labour"
                     }
                   },
-                  "Property": "source_url"
+                  "Property": "evidence_level"
                 }
               },
-              "queryRef": "Labour.source_url",
+              "queryRef": "Labour.evidence_level",
+              "nativeQueryRef": "Evidence",
+              "displayName": "Evidence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labour"
+                    }
+                  },
+                  "Property": "source_name"
+                }
+              },
+              "queryRef": "Labour.source_name",
               "nativeQueryRef": "Source",
               "displayName": "Source"
             }

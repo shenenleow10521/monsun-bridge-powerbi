@@ -16,6 +16,12 @@ table Income
 		summarizeBy: none
 		formatString: yyyy
 
+	column year
+		dataType: int64
+		sourceColumn: year
+		summarizeBy: none
+		formatString: 0
+
 	column income_mean_rm
 		dataType: double
 		sourceColumn: income_mean_rm
@@ -28,6 +34,16 @@ table Income
 		summarizeBy: none
 		formatString: #,0
 
+	column evidence_level
+		dataType: string
+		sourceColumn: evidence_level
+		summarizeBy: none
+
+	column source_name
+		dataType: string
+		sourceColumn: source_name
+		summarizeBy: none
+
 	column source_url
 		dataType: string
 		sourceColumn: source_url
@@ -37,9 +53,9 @@ table Income
 	partition Income = m
 		mode: import
 		source =
-				#table(type table [state = text, district = text, date = date, income_mean_rm = number, income_median_rm = number, source_url = text], {
-				    {"Pahang", "Rompin", #date(2024, 1, 1), 5429.0, 4760.0, "https://data.gov.my/data-catalogue/hh_income_district"},
-				    {"Terengganu", "Besut", #date(2024, 1, 1), 6747.0, 5820.0, "https://data.gov.my/data-catalogue/hh_income_district"},
-				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 8385.0, 7304.0, "https://data.gov.my/data-catalogue/hh_income_district"},
-				    {"Terengganu", "Marang", #date(2024, 1, 1), 6807.0, 6246.0, "https://data.gov.my/data-catalogue/hh_income_district"}
+				#table(type table [state = text, district = text, date = date, year = Int64.Type, income_mean_rm = number, income_median_rm = number, evidence_level = text, source_name = text, source_url = text], {
+				    {"Pahang", "Rompin", #date(2024, 1, 1), 2024, 5429.0, 4760.0, "OBSERVED", "DOSM HIES district", "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Besut", #date(2024, 1, 1), 2024, 6747.0, 5820.0, "OBSERVED", "DOSM HIES district", "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 2024, 8385.0, 7304.0, "OBSERVED", "DOSM HIES district", "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Marang", #date(2024, 1, 1), 2024, 6807.0, 6246.0, "OBSERVED", "DOSM HIES district", "https://data.gov.my/data-catalogue/hh_income_district"}
 				})

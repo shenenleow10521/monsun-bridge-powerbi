@@ -24,11 +24,28 @@ table Metrics
 	measure 'Labour force persons' = SUM(Labour[labour_force_thousands]) * 1000
 		formatString: #,0
 
+	measure 'Employed persons display' = FORMAT([Employed persons], "#,0")
+
+	measure 'Labour force persons display' = FORMAT([Labour force persons], "#,0")
+
+	measure 'Mean household income RM' = MAX(Income[income_mean_rm])
+		formatString: "RM "#,0
+
+	measure 'Median household income RM' = MAX(Income[income_median_rm])
+		formatString: "RM "#,0
+
 	measure 'District count' = DISTINCTCOUNT(Labour[district])
 		formatString: 0
 
 	measure 'Marine landings (tonnes)' = SUM(Fish[landings_mt])
 		formatString: #,0
+
+	measure 'Marine landings display' = FORMAT([Marine landings (tonnes)], "#,0")
+
+	measure 'Peak monthly landings' = MAXX(VALUES(Fish[date]), CALCULATE([Marine landings (tonnes)]))
+		formatString: #,0
+
+	measure 'Peak monthly landings display' = FORMAT([Peak monthly landings], "#,0")
 
 	measure 'Monthly records' = COUNTROWS(Fish)
 		formatString: 0
@@ -45,6 +62,8 @@ table Metrics
 	measure 'Scenario participants' = ROUND([Employed persons] * [Scenario rate], 0)
 		formatString: #,0
 
+	measure 'Scenario participants display' = FORMAT([Scenario participants], "#,0")
+
 	measure 'Scenario training budget' = [Scenario participants] * [Scenario duration] * [Scenario unit cost]
 		formatString: "RM "#,0
 
@@ -54,8 +73,12 @@ table Metrics
 	measure 'Scenario total budget' = [Scenario training budget] + [Scenario admin budget]
 		formatString: "RM "#,0
 
+	measure 'Scenario total budget display' = "RM " & FORMAT(DIVIDE([Scenario total budget], 1000000), "0.0") & "M"
+
 	measure 'Scenario cost per participant' = DIVIDE([Scenario total budget], [Scenario participants])
 		formatString: "RM "#,0
+
+	measure 'Scenario cost per participant display' = "RM " & FORMAT([Scenario cost per participant], "#,0")
 
 	column placeholder
 		dataType: string

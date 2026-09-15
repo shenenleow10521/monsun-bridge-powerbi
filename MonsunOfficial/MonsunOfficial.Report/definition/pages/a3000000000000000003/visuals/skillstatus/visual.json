@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Skill Bridge · evidence needed",
+                    "value": "Evidence boundary",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13pt",
@@ -33,7 +33,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Occupational texts and training records are not loaded in this edition.",
+                    "value": "Observed: monthly marine landings by state.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
@@ -46,7 +46,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "No similarity scores, vacancies or placement guarantees are shown.",
+                    "value": "Not observed: vacancies, worker skills or hiring capacity.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
@@ -59,7 +59,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Marine landings indicate activity, not aquaculture production or hiring demand.",
+                    "value": "Policy use: screen seasonal timing, then validate employers before recommending a pathway.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",

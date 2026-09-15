@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Official-data edition • Source dates and units are retained • Desktop rendering remains to be verified",
+                    "value": "OBSERVED = official published value • MODELLED = transparent scenario • Full source URLs retained in Data/",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "10pt",

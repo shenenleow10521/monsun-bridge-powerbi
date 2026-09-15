@@ -28,8 +28,8 @@
                 }
               },
               "queryRef": "Duration.months",
-              "nativeQueryRef": "Training duration · defaults to 1 month",
-              "displayName": "Training duration · defaults to 1 month"
+              "nativeQueryRef": "Training duration · selected 1 month",
+              "displayName": "Training duration · selected 1 month"
             }
           ]
         }
@@ -61,6 +61,48 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "Duration",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "p"
+                              }
+                            },
+                            "Property": "months"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "1L"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -77,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Training duration · defaults to 1 month'"
+                  "Value": "'Training duration · selected 1 month'"
                 }
               }
             }

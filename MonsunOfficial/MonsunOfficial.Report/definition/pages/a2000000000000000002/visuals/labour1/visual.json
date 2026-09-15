@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Employed persons"
+                  "Property": "Employed persons display"
                 }
               },
-              "queryRef": "Metrics.Employed persons",
-              "nativeQueryRef": "Employed persons · selected districts · 2024",
-              "displayName": "Employed persons · selected districts · 2024"
+              "queryRef": "Metrics.Employed persons display",
+              "nativeQueryRef": "OBSERVED · employed persons · selected districts · 2024",
+              "displayName": "OBSERVED · employed persons · selected districts · 2024"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Employed persons · selected districts · 2024'"
+                  "Value": "'OBSERVED · employed persons · selected districts · 2024'"
                 }
               }
             }

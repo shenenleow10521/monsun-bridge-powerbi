@@ -23,6 +23,16 @@ table Fish
 		summarizeBy: none
 		formatString: #,0
 
+	column evidence_level
+		dataType: string
+		sourceColumn: evidence_level
+		summarizeBy: none
+
+	column source_name
+		dataType: string
+		sourceColumn: source_name
+		summarizeBy: none
+
 	column source_url
 		dataType: string
 		sourceColumn: source_url
@@ -32,29 +42,29 @@ table Fish
 	partition Fish = m
 		mode: import
 		source =
-				#table(type table [state = text, date = date, month = Int64.Type, landings_mt = number, source_url = text], {
-				    {"Terengganu", #date(2023, 1, 1), 1, 2219.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 2, 1), 2, 2998.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 3, 1), 3, 3555.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 4, 1), 4, 3944.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 5, 1), 5, 4353.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 6, 1), 6, 4194.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 7, 1), 7, 4256.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 8, 1), 8, 4134.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 9, 1), 9, 4836.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 10, 1), 10, 6473.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 11, 1), 11, 3148.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Terengganu", #date(2023, 12, 1), 12, 1591.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 1, 1), 1, 4619.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 2, 1), 2, 6193.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 3, 1), 3, 8770.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 4, 1), 4, 10425.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 5, 1), 5, 9853.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 6, 1), 6, 11298.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 7, 1), 7, 12617.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 8, 1), 8, 11160.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 9, 1), 9, 12971.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 10, 1), 10, 13217.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 11, 1), 11, 9793.0, "https://data.gov.my/data-catalogue/fish_landings"},
-				    {"Pahang", #date(2023, 12, 1), 12, 5288.0, "https://data.gov.my/data-catalogue/fish_landings"}
+				#table(type table [state = text, date = date, month = Int64.Type, landings_mt = number, evidence_level = text, source_name = text, source_url = text], {
+				    {"Terengganu", #date(2023, 1, 1), 1, 2219.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 2, 1), 2, 2998.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 3, 1), 3, 3555.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 4, 1), 4, 3944.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 5, 1), 5, 4353.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 6, 1), 6, 4194.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 7, 1), 7, 4256.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 8, 1), 8, 4134.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 9, 1), 9, 4836.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 10, 1), 10, 6473.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 11, 1), 11, 3148.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Terengganu", #date(2023, 12, 1), 12, 1591.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 1, 1), 1, 4619.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 2, 1), 2, 6193.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 3, 1), 3, 8770.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 4, 1), 4, 10425.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 5, 1), 5, 9853.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 6, 1), 6, 11298.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 7, 1), 7, 12617.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 8, 1), 8, 11160.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 9, 1), 9, 12971.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 10, 1), 10, 13217.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 11, 1), 11, 9793.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"},
+				    {"Pahang", #date(2023, 12, 1), 12, 5288.0, "OBSERVED", "DOF fish landings", "https://data.gov.my/data-catalogue/fish_landings"}
 				})

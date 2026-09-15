@@ -99,12 +99,12 @@
                       "Entity": "Monsoon"
                     }
                   },
-                  "Property": "reference"
+                  "Property": "evidence_level"
                 }
               },
-              "queryRef": "Monsoon.reference",
-              "nativeQueryRef": "Page",
-              "displayName": "Page"
+              "queryRef": "Monsoon.evidence_level",
+              "nativeQueryRef": "Evidence",
+              "displayName": "Evidence"
             },
             {
               "field": {
@@ -114,12 +114,12 @@
                       "Entity": "Monsoon"
                     }
                   },
-                  "Property": "source_url"
+                  "Property": "reference"
                 }
               },
-              "queryRef": "Monsoon.source_url",
-              "nativeQueryRef": "METMalaysia source",
-              "displayName": "METMalaysia source"
+              "queryRef": "Monsoon.reference",
+              "nativeQueryRef": "Page",
+              "displayName": "Page"
             }
           ]
         }

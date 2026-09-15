@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Scenario total budget"
+                  "Property": "Scenario total budget display"
                 }
               },
-              "queryRef": "Metrics.Scenario total budget",
-              "nativeQueryRef": "Scenario budget · RM",
-              "displayName": "Scenario budget · RM"
+              "queryRef": "Metrics.Scenario total budget display",
+              "nativeQueryRef": "MODELLED · programme budget",
+              "displayName": "MODELLED · programme budget"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Scenario budget · RM'"
+                  "Value": "'MODELLED · programme budget'"
                 }
               }
             }

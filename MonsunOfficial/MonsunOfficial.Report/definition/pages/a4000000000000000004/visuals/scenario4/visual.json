@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Scenario cost per participant"
+                  "Property": "Scenario cost per participant display"
                 }
               },
-              "queryRef": "Metrics.Scenario cost per participant",
-              "nativeQueryRef": "Scenario cost per participant · RM",
-              "displayName": "Scenario cost per participant · RM"
+              "queryRef": "Metrics.Scenario cost per participant display",
+              "nativeQueryRef": "MODELLED · cost per participant",
+              "displayName": "MODELLED · cost per participant"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Scenario cost per participant · RM'"
+                  "Value": "'MODELLED · cost per participant'"
                 }
               }
             }

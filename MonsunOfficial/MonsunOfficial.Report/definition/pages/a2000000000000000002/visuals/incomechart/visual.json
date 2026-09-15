@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "incomechart",
+  "position": {
+    "x": 816,
+    "y": 282,
+    "width": 752,
+    "height": 310,
+    "z": 7,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "District"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "District.district",
+              "nativeQueryRef": "district",
+              "displayName": "district",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Mean household income RM"
+                }
+              },
+              "queryRef": "Metrics.Mean household income RM",
+              "nativeQueryRef": "Mean household income RM",
+              "displayName": "Mean household income RM"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Median household income RM"
+                }
+              },
+              "queryRef": "Metrics.Median household income RM",
+              "nativeQueryRef": "Median household income RM",
+              "displayName": "Median household income RM"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "District"
+                  }
+                },
+                "Property": "district"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly household income by district · RM · 2024'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

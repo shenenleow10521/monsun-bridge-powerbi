@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Marine landings (tonnes)"
+                  "Property": "Marine landings display"
                 }
               },
-              "queryRef": "Metrics.Marine landings (tonnes)",
-              "nativeQueryRef": "Marine fish landed · tonnes · 2023",
-              "displayName": "Marine fish landed · tonnes · 2023"
+              "queryRef": "Metrics.Marine landings display",
+              "nativeQueryRef": "OBSERVED · marine fish landed · tonnes · 2023",
+              "displayName": "OBSERVED · marine fish landed · tonnes · 2023"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Marine fish landed · tonnes · 2023'"
+                  "Value": "'OBSERVED · marine fish landed · tonnes · 2023'"
                 }
               }
             }

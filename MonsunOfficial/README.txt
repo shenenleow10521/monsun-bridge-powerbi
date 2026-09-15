@@ -8,9 +8,9 @@ P2: 2024 official district labour force and household income. The district slice
 P3: 2023 official monthly marine fish landings. Skills and capacities remain unavailable.
 P4: all-sector workforce budget scenario. Parameters and 10% admin coefficient are analytical assumptions.
 
-Slicers are page-specific.
+Slicers are page-specific. Full source URLs are retained in the embedded tables and Data folder; compact source names are shown on canvas for readability.
 Raw-source hashes and download metadata: Data/SOURCE_MANIFEST.json.
 Reproduction: scripts/build_official_data.py and scripts/build_embedded_official_project.py in the repository.
 
-This is a separate factual-baseline edition; original research project is preserved. It is not the completed three-engine submission.
-Power BI Desktop cannot be executed here. Opening, visual rendering and offline interaction must be confirmed on Windows before Save As PBIX and PDF export. No final PBIX or PDF is claimed.
+Power BI Desktop rendering and data refresh were confirmed from user screenshots on 15 September 2026. Test all slicer interactions and Save As PBIX on the submission computer before delivery.
+This remains a factual-baseline edition, not a completed occupational AI model; no final PBIX or PDF is claimed.

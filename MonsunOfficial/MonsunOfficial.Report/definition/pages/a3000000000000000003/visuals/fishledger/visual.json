@@ -69,12 +69,27 @@
                       "Entity": "Fish"
                     }
                   },
-                  "Property": "source_url"
+                  "Property": "evidence_level"
                 }
               },
-              "queryRef": "Fish.source_url",
-              "nativeQueryRef": "DOF source",
-              "displayName": "DOF source"
+              "queryRef": "Fish.evidence_level",
+              "nativeQueryRef": "Evidence",
+              "displayName": "Evidence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fish"
+                    }
+                  },
+                  "Property": "source_name"
+                }
+              },
+              "queryRef": "Fish.source_name",
+              "nativeQueryRef": "Source",
+              "displayName": "Source"
             }
           ]
         }

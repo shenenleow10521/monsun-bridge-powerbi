@@ -34,5 +34,6 @@
       "bounds_and_overlap": "PASS"
     }
   ],
-  "Power_BI_Desktop_tested": false
+  "Power_BI_Desktop_render_confirmed_by_user_on": "2026-09-15",
+  "Power_BI_Desktop_full_interaction_and_save_tested": false
 }

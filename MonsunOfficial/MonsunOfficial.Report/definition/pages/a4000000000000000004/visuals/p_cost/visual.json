@@ -28,8 +28,8 @@
                 }
               },
               "queryRef": "UnitCost.rm",
-              "nativeQueryRef": "RM per participant-month · default 1,100",
-              "displayName": "RM per participant-month · default 1,100"
+              "nativeQueryRef": "RM per participant-month · selected 1,100",
+              "displayName": "RM per participant-month · selected 1,100"
             }
           ]
         }
@@ -61,6 +61,48 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "UnitCost",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "p"
+                              }
+                            },
+                            "Property": "rm"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "1100L"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -77,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'RM per participant-month · default 1,100'"
+                  "Value": "'RM per participant-month · selected 1,100'"
                 }
               }
             }

@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Employed persons"
+                  "Property": "Employed persons display"
                 }
               },
-              "queryRef": "Metrics.Employed persons",
-              "nativeQueryRef": "Observed workforce base · persons",
-              "displayName": "Observed workforce base · persons"
+              "queryRef": "Metrics.Employed persons display",
+              "nativeQueryRef": "OBSERVED · workforce base · persons",
+              "displayName": "OBSERVED · workforce base · persons"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed workforce base · persons'"
+                  "Value": "'OBSERVED · workforce base · persons'"
                 }
               }
             }

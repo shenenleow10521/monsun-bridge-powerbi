@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Scenario participants"
+                  "Property": "Scenario participants display"
                 }
               },
-              "queryRef": "Metrics.Scenario participants",
-              "nativeQueryRef": "Scenario participants · assumed share",
-              "displayName": "Scenario participants · assumed share"
+              "queryRef": "Metrics.Scenario participants display",
+              "nativeQueryRef": "MODELLED · scenario participants",
+              "displayName": "MODELLED · scenario participants"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Scenario participants · assumed share'"
+                  "Value": "'MODELLED · scenario participants'"
                 }
               }
             }

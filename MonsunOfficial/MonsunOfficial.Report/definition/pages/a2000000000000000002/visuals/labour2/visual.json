@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Labour force persons"
+                  "Property": "Labour force persons display"
                 }
               },
-              "queryRef": "Metrics.Labour force persons",
-              "nativeQueryRef": "Labour force · selected districts · 2024",
-              "displayName": "Labour force · selected districts · 2024"
+              "queryRef": "Metrics.Labour force persons display",
+              "nativeQueryRef": "OBSERVED · labour force · selected districts · 2024",
+              "displayName": "OBSERVED · labour force · selected districts · 2024"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Labour force · selected districts · 2024'"
+                  "Value": "'OBSERVED · labour force · selected districts · 2024'"
                 }
               }
             }
