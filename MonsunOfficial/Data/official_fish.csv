@@ -1,4 +1,4 @@
-﻿state,date,month,landings_mt,evidence_level,source_url
+state,date,month,landings_mt,evidence_level,source_url
 Terengganu,2023-01-01,1,2219.0,OBSERVED,https://data.gov.my/data-catalogue/fish_landings
 Terengganu,2023-02-01,2,2998.0,OBSERVED,https://data.gov.my/data-catalogue/fish_landings
 Terengganu,2023-03-01,3,3555.0,OBSERVED,https://data.gov.my/data-catalogue/fish_landings

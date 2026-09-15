@@ -24,12 +24,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Published quarters"
+                  "Property": "Latest observed NEM duration"
                 }
               },
-              "queryRef": "Metrics.Published quarters",
-              "nativeQueryRef": "2025 quarterly observations",
-              "displayName": "2025 quarterly observations"
+              "queryRef": "Metrics.Latest observed NEM duration",
+              "nativeQueryRef": "2024/25 NEM window · days · NEMI",
+              "displayName": "2024/25 NEM window · days · NEMI"
             }
           ]
         }
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'2025 quarterly observations'"
+                  "Value": "'2024/25 NEM window · days · NEMI'"
                 }
               }
             }

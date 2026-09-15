@@ -1,0 +1,21 @@
+table District
+
+	column state
+		dataType: string
+		sourceColumn: state
+		summarizeBy: none
+
+	column district
+		dataType: string
+		sourceColumn: district
+		summarizeBy: none
+
+	partition District = m
+		mode: import
+		source =
+				#table(type table [state = text, district = text], {
+				    {"Pahang", "Rompin"},
+				    {"Terengganu", "Besut"},
+				    {"Terengganu", "Kuala Nerus"},
+				    {"Terengganu", "Marang"}
+				})

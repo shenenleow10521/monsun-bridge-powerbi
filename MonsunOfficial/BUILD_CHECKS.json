@@ -5,9 +5,11 @@
     "Labour": 4,
     "Income": 4,
     "Fish": 24,
-    "Tourism": 4
+    "Tourism": 4,
+    "Monsoon": 2
   },
   "employed_persons_total": 210200.0,
+  "latest_observed_nem_duration_days": 133,
   "scenario_default_participants": 10510,
   "scenario_default_budget_rm": 12717100.000000002,
   "checks": [

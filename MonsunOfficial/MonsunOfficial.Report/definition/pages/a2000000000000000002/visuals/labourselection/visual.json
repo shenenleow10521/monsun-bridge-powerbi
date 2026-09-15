@@ -21,15 +21,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Labour"
+                      "Entity": "District"
                     }
                   },
                   "Property": "district"
                 }
               },
-              "queryRef": "Labour.district",
-              "nativeQueryRef": "District · employment views",
-              "displayName": "District · employment views"
+              "queryRef": "District.district",
+              "nativeQueryRef": "District · filters employment and income",
+              "displayName": "District · filters employment and income"
             }
           ]
         }
@@ -77,7 +77,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'District · employment views'"
+                  "Value": "'District · filters employment and income'"
                 }
               }
             }

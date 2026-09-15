@@ -1,4 +1,4 @@
-﻿state,district,date,income_mean_rm,income_median_rm,evidence_level,source_url
+state,district,date,income_mean_rm,income_median_rm,evidence_level,source_url
 Pahang,Rompin,2024-01-01,5429.0,4760.0,OBSERVED,https://data.gov.my/data-catalogue/hh_income_district
 Terengganu,Besut,2024-01-01,6747.0,5820.0,OBSERVED,https://data.gov.my/data-catalogue/hh_income_district
 Terengganu,Kuala Nerus,2024-01-01,8385.0,7304.0,OBSERVED,https://data.gov.my/data-catalogue/hh_income_district

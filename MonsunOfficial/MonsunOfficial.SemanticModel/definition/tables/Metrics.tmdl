@@ -15,6 +15,9 @@ table Metrics
 	measure 'Published quarters' = COUNTROWS(Tourism)
 		formatString: 0
 
+	measure 'Latest observed NEM duration' = CALCULATE(MAX(Monsoon[duration_days]), Monsoon[season] = "2024/25")
+		formatString: 0
+
 	measure 'Employed persons' = SUM(Labour[employed_thousands]) * 1000
 		formatString: #,0
 

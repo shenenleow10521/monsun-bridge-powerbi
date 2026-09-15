@@ -1,0 +1,48 @@
+table Monsoon
+
+	column season
+		dataType: string
+		sourceColumn: season
+		summarizeBy: none
+
+	column onset_date
+		dataType: dateTime
+		sourceColumn: onset_date
+		summarizeBy: none
+		formatString: dd MMM yyyy
+
+	column withdrawal_date
+		dataType: dateTime
+		sourceColumn: withdrawal_date
+		summarizeBy: none
+		formatString: dd MMM yyyy
+
+	column duration_days
+		dataType: int64
+		sourceColumn: duration_days
+		summarizeBy: none
+		formatString: 0
+
+	column method
+		dataType: string
+		sourceColumn: method
+		summarizeBy: none
+
+	column reference
+		dataType: string
+		sourceColumn: reference
+		summarizeBy: none
+
+	column source_url
+		dataType: string
+		sourceColumn: source_url
+		summarizeBy: none
+		dataCategory: WebUrl
+
+	partition Monsoon = m
+		mode: import
+		source =
+				#table(type table [season = text, onset_date = date, withdrawal_date = date, duration_days = Int64.Type, method = text, reference = text, source_url = text], {
+				    {"2020/21", #date(2020, 11, 11), #date(2021, 3, 28), 138, "NEMI", "Report p. 5 (PDF p. 10)", "https://www.met.gov.my/data/research/researchpapers/2023/RP01_2023.pdf"},
+				    {"2024/25", #date(2024, 11, 13), #date(2025, 3, 25), 133, "NEMI", "Report p. 1 (PDF p. 4)", "https://www.met.gov.my/data/research/researchpapers/2025/RP01_2025.pdf"}
+				})

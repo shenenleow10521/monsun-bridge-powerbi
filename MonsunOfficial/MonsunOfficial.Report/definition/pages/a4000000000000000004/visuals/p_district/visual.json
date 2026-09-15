@@ -21,13 +21,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Labour"
+                      "Entity": "District"
                     }
                   },
                   "Property": "district"
                 }
               },
-              "queryRef": "Labour.district",
+              "queryRef": "District.district",
               "nativeQueryRef": "District · all sectors",
               "displayName": "District · all sectors"
             }
