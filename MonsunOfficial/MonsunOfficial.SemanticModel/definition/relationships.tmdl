@@ -1,7 +1,0 @@
-relationship LabourDistrict
-	fromColumn: Labour.district
-	toColumn: District.district
-
-relationship IncomeDistrict
-	fromColumn: Income.district
-	toColumn: District.district
