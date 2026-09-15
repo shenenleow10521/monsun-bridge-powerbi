@@ -1,0 +1,44 @@
+table official_fish
+
+	column state
+		dataType: string
+		summarizeBy: none
+		sourceColumn: state
+
+	column date
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: date
+		formatString: yyyy-MM-dd
+
+	column month
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: month
+
+	column landings_mt
+		dataType: double
+		summarizeBy: none
+		sourceColumn: landings_mt
+		formatString: #,0.0
+
+	column evidence_level
+		dataType: string
+		summarizeBy: none
+		sourceColumn: evidence_level
+
+	column source_url
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_url
+		dataCategory: WebUrl
+
+	partition official_fish = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(OfficialDataFolder & "\official_fish.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"state", type text}, {"date", type date}, {"month", Int64.Type}, {"landings_mt", type number}, {"evidence_level", type text}, {"source_url", type text}}, "en-US")
+				in
+				    Typed

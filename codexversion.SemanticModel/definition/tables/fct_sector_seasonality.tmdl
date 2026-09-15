@@ -1,0 +1,74 @@
+table fct_sector_seasonality
+	lineageTag: e9d2b1ec-6b47-40f3-84f9-8645fde1a916
+
+	column sector_code
+		dataType: string
+		lineageTag: a5fc47fd-7e39-416f-8a35-8c3e2132e525
+		summarizeBy: none
+		sourceColumn: sector_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 25c047a9-85a6-4614-a803-d169f4de6c1a
+		summarizeBy: none
+		sourceColumn: month_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column activity_value
+		dataType: double
+		lineageTag: ef472e99-a8d4-4c53-8bc6-3cf2d692a328
+		summarizeBy: sum
+		sourceColumn: activity_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column seasonal_index
+		dataType: double
+		lineageTag: 86dc7c80-0861-4fc4-91e7-660e7ed67ff1
+		summarizeBy: sum
+		sourceColumn: seasonal_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column csi
+		dataType: double
+		lineageTag: 09a2d473-19c5-4073-bd8f-ac8ee403c5cd
+		summarizeBy: sum
+		sourceColumn: csi
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evidence_level
+		dataType: string
+		lineageTag: 951e5cd8-531f-417a-a2b7-166fffea08be
+		summarizeBy: none
+		sourceColumn: evidence_level
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_sector_seasonality = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_sector_seasonality.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"sector_code", type text}, {"month_date", type date}, {"activity_value", type number}, {"seasonal_index", type number}, {"csi", type number}, {"evidence_level", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,70 @@
+table Metrics
+
+	measure 'Visitors (million)' = SUM(Tourism[visitors_million])
+		formatString: 0.0
+
+	measure 'Expenditure (RM billion)' = SUM(Tourism[expenditure_billion])
+		formatString: 0.0
+
+	measure 'Q4 visitors (million)' = CALCULATE([Visitors (million)], Tourism[quarter] = "2025 Q4")
+		formatString: 0.0
+
+	measure 'Q4 expenditure (RM billion)' = CALCULATE([Expenditure (RM billion)], Tourism[quarter] = "2025 Q4")
+		formatString: 0.0
+
+	measure 'Published quarters' = COUNTROWS(Tourism)
+		formatString: 0
+
+	measure 'Latest observed NEM duration' = CALCULATE(MAX(Monsoon[duration_days]), Monsoon[season] = "2024/25")
+		formatString: 0
+
+	measure 'Employed persons' = SUM(Labour[employed_thousands]) * 1000
+		formatString: #,0
+
+	measure 'Labour force persons' = SUM(Labour[labour_force_thousands]) * 1000
+		formatString: #,0
+
+	measure 'District count' = DISTINCTCOUNT(Labour[district])
+		formatString: 0
+
+	measure 'Marine landings (tonnes)' = SUM(Fish[landings_mt])
+		formatString: #,0
+
+	measure 'Monthly records' = COUNTROWS(Fish)
+		formatString: 0
+
+	measure 'Scenario rate' = SELECTEDVALUE(Participation[rate], 0.05)
+		formatString: 0%
+
+	measure 'Scenario duration' = SELECTEDVALUE(Duration[months], 1)
+		formatString: 0
+
+	measure 'Scenario unit cost' = SELECTEDVALUE(UnitCost[rm], 1100)
+		formatString: #,0
+
+	measure 'Scenario participants' = ROUND([Employed persons] * [Scenario rate], 0)
+		formatString: #,0
+
+	measure 'Scenario training budget' = [Scenario participants] * [Scenario duration] * [Scenario unit cost]
+		formatString: "RM "#,0
+
+	measure 'Scenario admin budget' = [Scenario training budget] * 0.1
+		formatString: "RM "#,0
+
+	measure 'Scenario total budget' = [Scenario training budget] + [Scenario admin budget]
+		formatString: "RM "#,0
+
+	measure 'Scenario cost per participant' = DIVIDE([Scenario total budget], [Scenario participants])
+		formatString: "RM "#,0
+
+	column placeholder
+		dataType: string
+		sourceColumn: placeholder
+		summarizeBy: none
+
+	partition Metrics = m
+		mode: import
+		source =
+				#table(type table [placeholder = text], {
+
+				})

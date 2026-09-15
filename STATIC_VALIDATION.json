@@ -1,0 +1,9 @@
+{
+  "jsonParse": true,
+  "overlaps": [],
+  "unknownFields": [],
+  "visuals": 67,
+  "fieldReferenceScope": "Only tables fetched during this turn; not full semantic validation.",
+  "pythonExecuted": false,
+  "powerBiExecuted": false
+}

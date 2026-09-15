@@ -1,0 +1,38 @@
+{
+  "raw_hashes_verified": true,
+  "official_script_executed": true,
+  "embedded_rows": {
+    "Labour": 4,
+    "Income": 4,
+    "Fish": 24,
+    "Tourism": 4,
+    "Monsoon": 2
+  },
+  "employed_persons_total": 210200.0,
+  "latest_observed_nem_duration_days": 133,
+  "scenario_default_participants": 10510,
+  "scenario_default_budget_rm": 12717100.000000002,
+  "checks": [
+    {
+      "page": "a1000000000000000001",
+      "visuals": 9,
+      "bounds_and_overlap": "PASS"
+    },
+    {
+      "page": "a2000000000000000002",
+      "visuals": 9,
+      "bounds_and_overlap": "PASS"
+    },
+    {
+      "page": "a3000000000000000003",
+      "visuals": 9,
+      "bounds_and_overlap": "PASS"
+    },
+    {
+      "page": "a4000000000000000004",
+      "visuals": 13,
+      "bounds_and_overlap": "PASS"
+    }
+  ],
+  "Power_BI_Desktop_tested": false
+}

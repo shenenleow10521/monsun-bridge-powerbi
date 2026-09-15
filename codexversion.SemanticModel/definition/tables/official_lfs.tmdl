@@ -1,0 +1,56 @@
+table official_lfs
+
+	column state
+		dataType: string
+		summarizeBy: none
+		sourceColumn: state
+
+	column district
+		dataType: string
+		summarizeBy: none
+		sourceColumn: district
+
+	column date
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: date
+		formatString: yyyy-MM-dd
+
+	column labour_force_thousands
+		dataType: double
+		summarizeBy: none
+		sourceColumn: labour_force_thousands
+		formatString: #,0.0
+
+	column employed_thousands
+		dataType: double
+		summarizeBy: none
+		sourceColumn: employed_thousands
+		formatString: #,0.0
+
+	column unemployment_rate_pct
+		dataType: double
+		summarizeBy: none
+		sourceColumn: unemployment_rate_pct
+		formatString: #,0.0
+
+	column evidence_level
+		dataType: string
+		summarizeBy: none
+		sourceColumn: evidence_level
+
+	column source_url
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_url
+		dataCategory: WebUrl
+
+	partition official_lfs = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(OfficialDataFolder & "\official_lfs.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"state", type text}, {"district", type text}, {"date", type date}, {"labour_force_thousands", type number}, {"employed_thousands", type number}, {"unemployment_rate_pct", type number}, {"evidence_level", type text}, {"source_url", type text}}, "en-US")
+				in
+				    Typed

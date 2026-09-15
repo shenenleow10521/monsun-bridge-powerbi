@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ec2a38639c9aa4c8bc00",
+  "position": {
+    "x": 560,
+    "y": 680,
+    "width": 620,
+    "height": 360,
+    "z": 60,
+    "tabOrder": 60
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "official_lfs.district",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "official_lfs.date",
+              "nativeQueryRef": "Reference date",
+              "displayName": "Reference date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "employed_thousands"
+                }
+              },
+              "queryRef": "official_lfs.employed_thousands",
+              "nativeQueryRef": "Employed ('000)",
+              "displayName": "Employed ('000)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "official_lfs"
+                    }
+                  },
+                  "Property": "unemployment_rate_pct"
+                }
+              },
+              "queryRef": "official_lfs.unemployment_rate_pct",
+              "nativeQueryRef": "Unemployment (%)",
+              "displayName": "Unemployment (%)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Official labour context · OBSERVED · all four districts'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,68 @@
+table dim_monsoon_window
+	lineageTag: 0893493c-f235-406a-9623-5918492c3f37
+
+	column season_year
+		dataType: string
+		lineageTag: 337d338e-411b-4aeb-9cef-4a39680a5356
+		summarizeBy: none
+		sourceColumn: season_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column onset_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b2f14f89-0992-4b43-8fce-c5f024f11fd5
+		summarizeBy: none
+		sourceColumn: onset_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column withdrawal_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2eb9b0da-1e5d-402d-8c99-80e3d1cc7e4b
+		summarizeBy: none
+		sourceColumn: withdrawal_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column exposure_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 4244043d-dd76-4936-a23c-dc5a0ed00644
+		summarizeBy: sum
+		sourceColumn: exposure_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_url
+		dataType: string
+		lineageTag: 872b6165-aed9-41a6-b150-cba0b3a2ec29
+		summarizeBy: none
+		sourceColumn: source_url
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_monsoon_window = m
+		mode: import
+		source =
+				let
+				    Source = #table(
+				        type table [season_year = text, onset_date = date, withdrawal_date = date, exposure_days = Int64.Type, source_url = text],
+				        {
+				            {"2020/21", #date(2020, 11, 11), #date(2021, 3, 28), 138, "https://www.met.gov.my/data/research/researchpapers/2023/RP01_2023.pdf"},
+				            {"2024/25", #date(2024, 11, 13), #date(2025, 3, 25), 133, "https://www.met.gov.my/data/research/researchpapers/2025/RP01_2025.pdf"}
+				        }
+				    )
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

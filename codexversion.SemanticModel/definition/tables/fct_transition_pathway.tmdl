@@ -1,0 +1,126 @@
+table fct_transition_pathway
+	lineageTag: 6101d055-bf5d-42c4-86ff-c12407d380bc
+
+	column district_code
+		dataType: string
+		lineageTag: 277d3d65-8982-4c60-a3ee-24547699f160
+		summarizeBy: none
+		sourceColumn: district_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column occupation_code
+		dataType: string
+		lineageTag: 35794d84-7334-4e19-b9f8-c529d137f48f
+		summarizeBy: none
+		sourceColumn: occupation_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column alt_occupation_code
+		dataType: string
+		lineageTag: 7c561d43-9291-4687-b987-ce719173ad86
+		summarizeBy: none
+		sourceColumn: alt_occupation_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column semantic_similarity
+		dataType: double
+		lineageTag: d013e20f-91bf-4a5d-8c95-b9c42c25414a
+		summarizeBy: sum
+		sourceColumn: semantic_similarity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geographic_feasibility
+		dataType: double
+		lineageTag: e08ffc68-b8ae-4fdb-8106-5612d4525b6d
+		summarizeBy: sum
+		sourceColumn: geographic_feasibility
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column seasonal_fit
+		dataType: double
+		lineageTag: 17c19db8-9f59-43e4-8cb8-2ef99c683e6b
+		summarizeBy: sum
+		sourceColumn: seasonal_fit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column training_gap_months
+		dataType: double
+		lineageTag: 234f7a81-1058-4c28-b749-2e262c298308
+		summarizeBy: sum
+		sourceColumn: training_gap_months
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column capacity_value
+		dataType: int64
+		formatString: 0
+		lineageTag: d2155869-adfb-49c2-97b2-0e2e4c67f001
+		summarizeBy: sum
+		sourceColumn: capacity_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_evidence_level
+		dataType: string
+		lineageTag: b4ea7481-869b-470a-aa5f-ecc572ea40e1
+		summarizeBy: none
+		sourceColumn: capacity_evidence_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column transition_score
+		dataType: double
+		lineageTag: e1b16d2d-3a47-4e1a-9e06-4402e2b318d2
+		summarizeBy: sum
+		sourceColumn: transition_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: c99ec3d6-e4a8-41bf-b897-0ce2bc2f25dc
+		summarizeBy: sum
+		sourceColumn: rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocated_workers
+		dataType: int64
+		formatString: 0
+		lineageTag: 201706bd-bd96-4e0b-b786-d97a67276890
+		summarizeBy: sum
+		sourceColumn: allocated_workers
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_transition_pathway = m
+		mode: import
+		source =
+				let
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_transition_pathway.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"district_code", type text}, {"occupation_code", type text}, {"alt_occupation_code", type text}, {"semantic_similarity", type number}, {"geographic_feasibility", type number}, {"seasonal_fit", type number}, {"training_gap_months", type number}, {"capacity_value", Int64.Type}, {"capacity_evidence_level", type text}, {"transition_score", type number}, {"rank", Int64.Type}, {"allocated_workers", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

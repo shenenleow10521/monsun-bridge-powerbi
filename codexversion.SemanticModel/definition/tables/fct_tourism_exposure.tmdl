@@ -1,0 +1,139 @@
+table fct_tourism_exposure
+	lineageTag: c5441a26-c43f-4918-8f8a-0d4d64be48ee
+
+	column state_code
+		dataType: string
+		lineageTag: b61c5729-bc2b-4061-8ce4-d7e1101131e4
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a6237ed5-0d7e-465f-a009-e5de3f86c293
+		summarizeBy: none
+		sourceColumn: quarter_start_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 44cf5a0f-5380-47ce-b470-c02d8ff62ee3
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: ab057791-5d30-4d22-9faa-bde851ef543e
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column tai
+		dataType: double
+		lineageTag: 5051646f-ab39-4033-871f-7ea16648e5de
+		summarizeBy: sum
+		sourceColumn: tai
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monsoon_share
+		dataType: double
+		lineageTag: 2e9bb6c1-0d65-4802-90d5-e167dc7bc67f
+		summarizeBy: sum
+		sourceColumn: monsoon_share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column baseline
+		dataType: double
+		lineageTag: fdab9462-54a2-4060-8a53-bbccabf43855
+		summarizeBy: sum
+		sourceColumn: baseline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tsei
+		dataType: double
+		lineageTag: 1c1a93c9-b51d-418f-bfa6-f95689caee80
+		summarizeBy: sum
+		sourceColumn: tsei
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tsei_band
+		dataType: string
+		lineageTag: 8ac0d4d6-4fc7-4204-a2ea-c6e7cb045fc3
+		summarizeBy: none
+		sourceColumn: tsei_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_forecast
+		dataType: int64
+		formatString: 0
+		lineageTag: d473adb2-e8a5-4a46-bcf7-073a8c0112ae
+		summarizeBy: sum
+		sourceColumn: is_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_lower
+		dataType: double
+		lineageTag: 71148400-8d99-4345-ba0e-9aba7ef1b809
+		summarizeBy: sum
+		sourceColumn: forecast_lower
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_upper
+		dataType: double
+		lineageTag: 3b4c31a6-2dc0-4f6e-948e-edf9c4f18b00
+		summarizeBy: sum
+		sourceColumn: forecast_upper
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evidence_level
+		dataType: string
+		lineageTag: 115f70a0-0e31-4539-9ee3-7cbc52ad2a39
+		summarizeBy: none
+		sourceColumn: evidence_level
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_tourism_exposure = m
+		mode: import
+		source =
+				let
+				     Source = Csv.Document(File.Contents(DataFolder & "\MB_fct_tourism_exposure.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"state_code", type text}, {"quarter_start_date", type date}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"tai", type number}, {"monsoon_share", type number}, {"baseline", type number}, {"tsei", type number}, {"tsei_band", type text}, {"is_forecast", Int64.Type}, {"forecast_lower", type number}, {"forecast_upper", type number}, {"evidence_level", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

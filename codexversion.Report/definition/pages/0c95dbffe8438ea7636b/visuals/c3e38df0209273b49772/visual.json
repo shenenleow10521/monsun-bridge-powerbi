@@ -1,0 +1,445 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c3e38df0209273b49772",
+  "position": {
+    "x": 370,
+    "y": 100,
+    "z": 3,
+    "height": 420,
+    "width": 900,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_occupation_alt"
+                    }
+                  },
+                  "Property": "alt_occupation_name"
+                }
+              },
+              "queryRef": "dim_occupation_alt.alt_occupation_name",
+              "nativeQueryRef": "Alternative Occupation",
+              "displayName": "Alternative Occupation"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "transition_score"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.transition_score)",
+              "nativeQueryRef": "Transition Score",
+              "displayName": "Transition Score"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "rank"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.rank)",
+              "nativeQueryRef": "Rank",
+              "displayName": "Rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "semantic_similarity"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.semantic_similarity)",
+              "nativeQueryRef": "Skill Similarity",
+              "displayName": "Skill Similarity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "geographic_feasibility"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.geographic_feasibility)",
+              "nativeQueryRef": "Geographic Feasibility",
+              "displayName": "Geographic Feasibility"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "seasonal_fit"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.seasonal_fit)",
+              "nativeQueryRef": "Seasonal Fit",
+              "displayName": "Seasonal Fit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "training_gap_months"
+                }
+              },
+              "queryRef": "Sum(fct_transition_pathway.training_gap_months)",
+              "nativeQueryRef": "Training Gap (months)",
+              "displayName": "Training Gap (months)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_transition_pathway"
+                    }
+                  },
+                  "Property": "capacity_evidence_level"
+                }
+              },
+              "queryRef": "fct_transition_pathway.capacity_evidence_level",
+              "nativeQueryRef": "Capacity Evidence",
+              "displayName": "Capacity Evidence"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_transition_pathway"
+                  }
+                },
+                "Property": "transition_score"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": "#159D98"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Transition ranking · unverified prototype scores'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173B57'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MODELLED · Skill × geography × seasonality × capacity × training'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "86ad19fea6195d30b8bd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_occupation_alt"
+              }
+            },
+            "Property": "alt_occupation_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "09dca187068257376500",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "capacity_evidence_level"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "38e365d096873bee2c9d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "rank"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "97a3b635e7202dce7ee9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "transition_score"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "247bff46177db700d0a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "semantic_similarity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4b84933530c21c382983",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "geographic_feasibility"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "04ed74b40405c775b7dd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "training_gap_months"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c27cf7ce37c50aebbba3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_transition_pathway"
+              }
+            },
+            "Property": "seasonal_fit"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

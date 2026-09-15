@@ -1,0 +1,5 @@
+state,district,date,labour_force_thousands,employed_thousands,unemployment_rate_pct,evidence_level,source_url
+Pahang,Rompin,2024-01-01,41.1,40.3,1.9,OBSERVED,https://data.gov.my/data-catalogue/lfs_district
+Terengganu,Besut,2024-01-01,64.1,61.8,3.5,OBSERVED,https://data.gov.my/data-catalogue/lfs_district
+Terengganu,Kuala Nerus,2024-01-01,63.4,61.3,3.3,OBSERVED,https://data.gov.my/data-catalogue/lfs_district
+Terengganu,Marang,2024-01-01,48.1,46.8,2.6,OBSERVED,https://data.gov.my/data-catalogue/lfs_district

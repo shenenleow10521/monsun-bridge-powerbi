@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "budgetchart",
+  "position": {
+    "x": 32,
+    "y": 435,
+    "width": 1000,
+    "height": 320,
+    "z": 11,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "District"
+                    }
+                  },
+                  "Property": "district"
+                }
+              },
+              "queryRef": "District.district",
+              "nativeQueryRef": "district",
+              "displayName": "district",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Scenario training budget"
+                }
+              },
+              "queryRef": "Metrics.Scenario training budget",
+              "nativeQueryRef": "Scenario training budget",
+              "displayName": "Scenario training budget"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Scenario admin budget"
+                }
+              },
+              "queryRef": "Metrics.Scenario admin budget",
+              "nativeQueryRef": "Scenario admin budget",
+              "displayName": "Scenario admin budget"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "District"
+                  }
+                },
+                "Property": "district"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Training and administration · modelled budget'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

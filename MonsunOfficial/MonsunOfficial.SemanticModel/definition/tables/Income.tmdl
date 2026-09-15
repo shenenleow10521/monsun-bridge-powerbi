@@ -1,0 +1,45 @@
+table Income
+
+	column state
+		dataType: string
+		sourceColumn: state
+		summarizeBy: none
+
+	column district
+		dataType: string
+		sourceColumn: district
+		summarizeBy: none
+
+	column date
+		dataType: dateTime
+		sourceColumn: date
+		summarizeBy: none
+		formatString: yyyy
+
+	column income_mean_rm
+		dataType: double
+		sourceColumn: income_mean_rm
+		summarizeBy: none
+		formatString: #,0
+
+	column income_median_rm
+		dataType: double
+		sourceColumn: income_median_rm
+		summarizeBy: none
+		formatString: #,0
+
+	column source_url
+		dataType: string
+		sourceColumn: source_url
+		summarizeBy: none
+		dataCategory: WebUrl
+
+	partition Income = m
+		mode: import
+		source =
+				#table(type table [state = text, district = text, date = date, income_mean_rm = number, income_median_rm = number, source_url = text], {
+				    {"Pahang", "Rompin", #date(2024, 1, 1), 5429.0, 4760.0, "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Besut", #date(2024, 1, 1), 6747.0, 5820.0, "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Kuala Nerus", #date(2024, 1, 1), 8385.0, 7304.0, "https://data.gov.my/data-catalogue/hh_income_district"},
+				    {"Terengganu", "Marang", #date(2024, 1, 1), 6807.0, 6246.0, "https://data.gov.my/data-catalogue/hh_income_district"}
+				})
